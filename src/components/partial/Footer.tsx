@@ -82,7 +82,7 @@ const Footer = (props: Props) => {
     })
 
     return (
-        <div className=' h-[300px] bg-[#14142B] px-[100px]  pt-[30px] font-sans text-[#FCFCFC]'>
+        <div className=' h-[300px] bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
             <div className='grid grid-cols-4 justify-items-center pb-4'>
                 <Logo type='white' />
                 <div>
