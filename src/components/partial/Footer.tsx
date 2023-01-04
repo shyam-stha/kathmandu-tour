@@ -56,21 +56,27 @@ const socialLinks = [
 const Footer = (props: Props) => {
     const aboutLinkItems = aboutLinks.map((item) => {
         return (
-            <div className='pb-[8px]'>
+            <div
+                key={item.text}
+                className='pb-[8px]'>
                 <NavLink to={item.path}>{item.text}</NavLink>
             </div>
         )
     })
     const supportLinkItems = supportLinks.map((item) => {
         return (
-            <div className='pb-[8px]'>
+            <div
+                key={item.text}
+                className='pb-[8px]'>
                 <NavLink to={item.path}>{item.text}</NavLink>
             </div>
         )
     })
     const socialLinkItems = socialLinks.map((item) => {
         return (
-            <div className='flex items-center gap-3 pb-[8px]'>
+            <div
+                key={item.text}
+                className='flex items-center gap-3 pb-[8px]'>
                 <img
                     src={item.icon}
                     alt={item.text}
