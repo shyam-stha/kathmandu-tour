@@ -11,3 +11,10 @@
 -> Typescripts
 -> Fetching
 -> Custom hooks
+
+
+ --> problems
+
+<!-- Word Break -->
+<!-- padding in input field -->
+

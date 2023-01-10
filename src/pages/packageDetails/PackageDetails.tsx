@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Rating } from '@mantine/core'
+import { Rating, Select } from '@mantine/core'
 import swayambhu from '../../assets/images/packageDetails/swayambhu.jpg'
 import PackageReserveForm from '../../components/common/PackageReserveForm'
 import FeaturedPackage from '../../components/container/FeaturedPackage'
@@ -8,6 +8,9 @@ import location from '../../assets/images/packageDetails/gis_location.svg'
 import groups from '../../assets/images/packageDetails/groups.svg'
 import dollor from '../../assets/images/packageDetails/dollor.svg'
 import share from '../../assets/images/packageDetails/share.svg'
+import task from '../../assets/images/packageDetails/task_alt.svg'
+import avatar from '../../assets/images/packageDetails/avatar.svg'
+import TourSchedule from '../../components/common/TourSchedule'
 
 type Props = {}
 
@@ -18,6 +21,30 @@ const tourTypes = [
     'Day Tour',
     'Family Friendly',
     'Night Tour',
+]
+
+const monthList = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+]
+
+const extraServiceList = ['Guid', 'Breakfast']
+
+const gearList = [
+    'An umbrella or a rain jacket. You never know.',
+    'Comfortable clothes - shorts are also fine of course..',
+    'Some money (in case a souvenir tempts you, or you want to have a drink)',
+    'Comfortable shoes - trainers are best!',
 ]
 
 const locationDetails = [
@@ -68,7 +95,7 @@ const intineraryList = [
 
 const PackageDetails = (props: Props) => {
     return (
-        <div className=' grid grid-cols-12 gap-6'>
+        <div className=' grid grid-cols-12 gap-6 py-10'>
             {/* package main detail section  */}
             <div className='col-start-2 col-end-12'>
                 {/* package image section  */}
@@ -94,12 +121,12 @@ const PackageDetails = (props: Props) => {
                                 return (
                                     <div
                                         key={type}
-                                        className={`flex items-center justify-center rounded-full bg-[#4B5563] px-[10px]  text-[14px] text-off-white`}>
+                                        className={`flex items-center justify-center rounded-full bg-[#4B5563] px-[20px]  text-[14px] text-off-white`}>
                                         {type}
                                     </div>
                                 )
                             })}
-                            <Link to='/intinerary'>See Itinerary</Link>
+                            <Link to='/intinerary' className='underline'>See Itinerary</Link>
                         </div>
                     </div>
                     {/* package book form section  */}
@@ -190,52 +217,109 @@ const PackageDetails = (props: Props) => {
                 </div>
             </div>
             {/* scheduled tours section  */}
-            <div className='col-start-2 col-end-12 grid grid-cols-3'>
+            <div className='col-start-2 col-end-12 grid grid-cols-3 '>
                 <div className='col-span-2'>
-                    <div className='flex justify-between'>
-                        <h1>Scheduled Tours</h1>
-                        <h2>Filter input</h2>
+                    <div className='flex items-center justify-between'>
+                        <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active'>
+                            Scheduled Tours
+                        </h1>
+                        <Select
+                            placeholder='Filter'
+                            data={monthList}
+                        />
                     </div>
-                    <div>
-                        
+                    <div className='flex flex-col gap-3'>
+                        <TourSchedule />
+                        <TourSchedule />
+                        <TourSchedule />
                     </div>
                 </div>
             </div>
-            {/* pacake extra feature section */}
-            {/* <div>
-                <h1>What Included</h1>
-                <li>Guide</li>
-                <li>Breakfast</li>
-                </div> */}
-            {/* gear list section  */}
-            {/* <div>
-                <h1>Gear List</h1>
-                <li>An umbrella or a rain jacket. You never know.</li>
-                <li>Comfortable clothes - shorts are also fine of course.</li>
-                <li>
-                Some money (in case a souvenir tempts you, or you want to
-                    have a drink)
-                    </li>
-                </div> */}
-            {/* package review secton  */}
-            {/* <div>
-                <h1>Customer Review</h1>
-                <div>Rajkumar Rau | From india | Aug 25, 2022</div>
-                <div>
-                <h2>Awesome Scenery</h2>
-                    <p>
-                    To honest very disappointed regarding health and safety
-                    it theres!! No first aid at all transport from hotel to
-                    the airport had to pay again and triple price. No maps
-                    no rout trip.Young guides with not much experience . But
-                    we...Read more
-                    </p>
-                </div> */}
-            {/* suggested section  */}
-            {/* <div>
-                    <FeaturedPackage />
+            {/* pacake extra service section */}
+            <div className='col-start-2 col-end-12 grid grid-cols-2'>
+                <div className='col-span-2'>
+                    <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active'>
+                        What Included
+                    </h1>
+                    <div className='list-none'>
+                        {extraServiceList.map((service) => {
+                            return (
+                                <li
+                                    key={service}
+                                    className='flex gap-2'>
+                                    <img src={task} />
+                                    <span>{service}</span>
+                                </li>
+                            )
+                        })}
                     </div>
-                </div> */}
+                </div>
+            </div>
+            {/* gear list section  */}
+            <div className='col-start-2 col-end-12 grid grid-cols-3'>
+                <div className='col-span-2'>
+                    <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active'>
+                        Gear List
+                    </h1>
+                    <div>
+                        {gearList.map((gear) => {
+                            return (
+                                <li
+                                    key={gear}
+                                    className='flex gap-2'>
+                                    <img src={task} />
+                                    <span>{gear}</span>
+                                </li>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+            {/* package review secton  */}
+            <div className='col-start-2 col-end-12 grid grid-cols-3 '>
+                <div className='col-span-2'>
+                    <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active'>
+                        Customer Review
+                    </h1>
+                    {/* reviewer profile */}
+                    <div className='grid grid-cols-12 gap-2'>
+                        <img src={avatar} />
+                        <div className='col-span-full col-start-2 text-label '>
+                            <div className='flex gap-1 text-[16px]'>
+                                <h2 className='text-title-active'>
+                                    Rajkumar Rao
+                                </h2>
+                                |<h2>From India</h2> |<h2>Aug 21, 2022</h2>
+                            </div>
+                            <div className='flex items-center gap-5'>
+                                <Rating defaultValue={4} />
+                                <span className='text-[14px]'>
+                                    5 - excellent
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* review  */}
+                    <div>
+                        <h3 className='font-[600] text-title-active'>
+                            Awesome Scenery
+                        </h3>
+                        <p className='break-words text-justify'>
+                            To honest very disappointed regarding health and
+                            safety it theres!! No first aid at all transport
+                            from hotel to the airport had to pay again and
+                            triple price. No maps no rout trip.Young guides with
+                            not much experience . But we...
+                            <span className='text-label'> Read more </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {/* suggested section  */}
+            <div className='col-start-2 col-end-12'>
+                <FeaturedPackage />
+            </div>
         </div>
     )
 }
