@@ -12,18 +12,16 @@ type Props = {}
 const LandingPage = (props: Props) => {
     return (
         <div>
-            <Hero />
             <div className=' fixed right-5 bottom-8 z-10'>
                 <ChatOption />
             </div>
             <div className='mx-[90px]'>
                 <PolularPackage />
-                <FeaturedPackage />
                 <TourTypes />
+                <FeaturedPackage />
                 <TopSites />
                 <News />
             </div>
-            <Footer />
         </div>
     )
 }

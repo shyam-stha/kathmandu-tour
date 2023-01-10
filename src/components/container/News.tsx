@@ -17,9 +17,11 @@ const News = (props: Props) => {
                     View all
                 </NavLink>
             </div>
-            <div className='flex justify-between'>
-                <CardBlog />
-                <div className='flex flex-col justify-between'>
+            <div className='grid grow grid-cols-1 gap-y-5 gap-x-5 2xl:grid-cols-3 2xl:place-content-between'>
+                <div className='2xl:col-span-2'>
+                    <CardBlog />
+                </div>
+                <div className='grid grid-cols-1 gap-y-5 gap-x-5 xl:grid-cols-2 2xl:flex 2xl:flex-col 2xl:justify-between 2xl:gap-0'>
                     <CardBlogsSmall />
                     <CardBlogsSmall />
                 </div>

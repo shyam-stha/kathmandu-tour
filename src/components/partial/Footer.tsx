@@ -58,7 +58,7 @@ const Footer = (props: Props) => {
         return (
             <div
                 key={item.text}
-                className='pb-[8px]'>
+                className='mb-[8px]'>
                 <NavLink to={item.path}>{item.text}</NavLink>
             </div>
         )
@@ -67,7 +67,7 @@ const Footer = (props: Props) => {
         return (
             <div
                 key={item.text}
-                className='pb-[8px]'>
+                className='mb-[8px]'>
                 <NavLink to={item.path}>{item.text}</NavLink>
             </div>
         )
@@ -76,7 +76,7 @@ const Footer = (props: Props) => {
         return (
             <div
                 key={item.text}
-                className='flex items-center gap-3 pb-[8px]'>
+                className='mb-[8px] flex items-center gap-3'>
                 <img
                     src={item.icon}
                     alt={item.text}
@@ -88,24 +88,26 @@ const Footer = (props: Props) => {
     })
 
     return (
-        <div className=' h-[300px] bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
-            <div className='grid grid-cols-4 justify-items-center pb-4'>
+        <div className='  bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
+            <div className='mb-4 grid grid-cols-1 place-items-center gap-5 lg:grid-cols-4'>
                 <Logo type='white' />
-                <div>
-                    <h2 className='pb-4 text-[20px] font-bold'>About</h2>
-                    {aboutLinkItems}
-                </div>
-                <div>
-                    <h2 className='pb-4 text-[20px] font-bold'>Support</h2>
-                    {supportLinkItems}
-                </div>
-                <div>
-                    <h2 className='pb-4 text-[20px] font-bold'>Social</h2>
-                    {socialLinkItems}
+                <div className='mb-5 grid w-full grid-cols-3 justify-items-center text-center lg:col-span-3 lg:text-left'>
+                    <div>
+                        <h2 className='mb-4 text-[20px] font-bold'>About</h2>
+                        {aboutLinkItems}
+                    </div>
+                    <div>
+                        <h2 className='mb-4 text-[20px] font-bold'>Support</h2>
+                        {supportLinkItems}
+                    </div>
+                    <div>
+                        <h2 className='mb-4 text-[20px] font-bold'>Social</h2>
+                        {socialLinkItems}
+                    </div>
                 </div>
             </div>
             <Divider color='#FCFCFC' />
-            <div className='pt-[25px] text-[18px]'>
+            <div className='py-[20px] text-center text-[18px] lg:text-left'>
                 <Text>&#169; 2022, All Rights Reserved</Text>
             </div>
         </div>

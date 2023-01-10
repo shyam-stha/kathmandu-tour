@@ -2,13 +2,13 @@ import hero from '../../assets/images/landing/hero.png'
 
 const CardBlog = () => {
     return (
-        <div className='relative h-[500px] w-[880px]  overflow-hidden rounded-md font-sans '>
+        <div className='relative h-[500px] overflow-hidden rounded-md font-sans w-full  '>
             <img
                 src={hero}
                 alt='image'
-                className='absolute inset-0 h-full w-full object-fill'
+                className='absolute inset-0 h-full w-full object-cover'
             />
-            <div className='absolute bottom-[40px] left-[30px] w-full p-[10px] font-sans tracking-[1px] text-white '>
+            <div className='absolute bottom-[40px] left-[30px] p-[10px] font-sans tracking-[1px] text-white '>
                 <h2 className='text-[32px] font-bold'>
                     Sunset Walk at Swyambhu
                 </h2>

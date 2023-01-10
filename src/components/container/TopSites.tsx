@@ -9,7 +9,7 @@ const TopSites = (props: Props) => {
             <h1 className='Font-sans mb-[30px] text-[32px] font-bold leading-[36px] tracking-[1px]'>
                 Top Sites to visit
             </h1>
-            <div className='flex flex-wrap justify-between'>
+            <div className='grid grid-cols-1 place-items-center gap-y-10 lg:grid-cols-2 2xl:flex 2xl:justify-between '>
                 <CardTopSite
                     image={DarbarSqr}
                     title='Kathmandu Darbar Square'
@@ -20,7 +20,7 @@ const TopSites = (props: Props) => {
                 />
                 <CardTopSite
                     image={DarbarSqr}
-                    title='Kathmandu Darbar Square'
+                    title='Kathmandu Darbar Square  '
                 />
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { Group, Tooltip } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
 import CardItems from './CardItem'
 import hero from '../../assets/images/landing/hero.png'
 import cost from '../../assets/images/cards/cost.svg'
@@ -65,6 +66,7 @@ const tourTripIcons = [
 ]
 
 const CardPackage = (props: Props) => {
+    const navigate = useNavigate()
     const items = cardItemObj?.map((item) => {
         return (
             <CardItems
@@ -76,15 +78,21 @@ const CardPackage = (props: Props) => {
         )
     })
 
+    const NavigateTo = () => {
+        navigate('/details')
+    }
+
     return (
-        <div className='h-[380px] w-[416px] cursor-pointer overflow-hidden rounded-md bg-white font-sans shadow-md shadow-gray-100'>
+        <div
+            className='bg-white shadow-gray-100 h-[380px] w-[416px] cursor-pointer overflow-hidden rounded-md font-sans shadow-md'
+            onClick={() => NavigateTo()}>
             <div className='relative'>
                 <img
                     src={hero}
                     alt='image'
                     className='h-[250px] w-full object-fill '
                 />
-                <Group className='absolute bottom-3 left-3 text-white'>
+                <Group className='text-white absolute bottom-3 left-3'>
                     {tourTripIcons?.map((icon) => {
                         return (
                             <Tooltip

@@ -16,7 +16,7 @@ const FeaturedPackage = (props: Props) => {
                     All things to do
                 </NavLink>
             </div>
-            <div className='flex flex-wrap justify-between'>
+            <div className='grid grid-cols-1 place-items-center gap-y-10 lg:grid-cols-2 2xl:flex 2xl:justify-between '>
                 <CardPackage />
                 <CardPackage />
                 <CardPackage />

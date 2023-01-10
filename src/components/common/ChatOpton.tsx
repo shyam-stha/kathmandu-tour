@@ -7,7 +7,7 @@ const ChatOption = (props: any) => {
             <img
                 src={Chat}
                 alt='Chat'
-                className='h-[60px] w-[60px]'
+                className='h-[50px] w-[50px]'
             />
         </NavLink>
     )

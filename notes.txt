@@ -1,0 +1,13 @@
+<!-- Learned Skills in this Project -->
+==> Tailwindcss configuration
+==> Prettier configuration
+==> Designs and Figma exports
+==> Colors and Convention
+
+
+<!-- Left to learn SKills -->
+-> DTO 
+-> Validations
+-> Typescripts
+-> Fetching
+-> Custom hooks
