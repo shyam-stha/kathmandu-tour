@@ -20,4 +20,7 @@
 <!-- Readability and code structure -->
 <!-- Scrolling -->
 <!-- Navigation -->
+<!-- Navigation -->
+<!-- terms and disabled -->
+<!-- form submittion -->
 

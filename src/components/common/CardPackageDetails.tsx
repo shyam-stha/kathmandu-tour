@@ -37,7 +37,7 @@ const CardPackageDetails = ({ onlyDetails }: any) => {
                 <h1 className='mt-4 mb-2 font-[700]'>Experience Nepal Now</h1>
                 {packageDetails?.map((detail) => {
                     return (
-                        <div className='flex justify-between'>
+                        <div className='flex justify-between' key={detail.title}>
                             <h1>{detail.title}</h1>
                             <p>{detail.value}</p>
                         </div>
