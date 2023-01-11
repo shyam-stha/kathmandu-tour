@@ -13,8 +13,11 @@
 -> Custom hooks
 
 
- --> problems
+# problems
 
 <!-- Word Break -->
 <!-- padding in input field -->
+<!-- Readability and code structure -->
+<!-- Scrolling -->
+<!-- Navigation -->
 

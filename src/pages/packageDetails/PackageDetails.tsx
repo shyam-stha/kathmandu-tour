@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Rating, Select } from '@mantine/core'
 import swayambhu from '../../assets/images/packageDetails/swayambhu.jpg'
 import PackageReserveForm from '../../components/common/PackageReserveForm'
-import FeaturedPackage from '../../components/container/FeaturedPackage'
+import SuggestedPackage from '../../components/container/SuggestedPackage'
 import time from '../../assets/images/packageDetails/Time.svg'
 import location from '../../assets/images/packageDetails/gis_location.svg'
 import groups from '../../assets/images/packageDetails/groups.svg'
@@ -95,16 +95,16 @@ const intineraryList = [
 
 const PackageDetails = (props: Props) => {
     return (
-        <div className=' grid grid-cols-12 gap-6 py-10'>
+        <div className=' grid grid-cols-12 gap-6 pb-10 pt-[90px]'>
             {/* package main detail section  */}
             <div className='col-start-2 col-end-12'>
                 {/* package image section  */}
-                <h1 className='text-[32px] font-[700] leading-[27px] tracking-[1px]'>
+                <h1 className='text-[32px] font-[700] leading-[27px] tracking-[1px] pb-3'>
                     Sunset Walk at Swoyambhu
                 </h1>
-                <div className='grid grid-cols-3 gap-3'>
+                <div className='grid grid-cols-3 gap-10'>
                     <div className='col-span-2'>
-                        <div className='flex items-center gap-5'>
+                        <div className='flex items-center gap-5 '>
                             <Rating defaultValue={2} />
                             <span className='text-[16px] text-label'>
                                 34 reviews
@@ -113,7 +113,7 @@ const PackageDetails = (props: Props) => {
                         <img
                             src={swayambhu}
                             alt=''
-                            className='mb-2 rounded-md'
+                            className='my-2 rounded-md'
                         />
                         {/* tour types section  */}
                         <div className='flex flex-wrap justify-between gap-2'>
@@ -126,7 +126,11 @@ const PackageDetails = (props: Props) => {
                                     </div>
                                 )
                             })}
-                            <Link to='/intinerary' className='underline'>See Itinerary</Link>
+                            <Link
+                                to='/intinerary'
+                                className='underline'>
+                                See Itinerary
+                            </Link>
                         </div>
                     </div>
                     {/* package book form section  */}
@@ -318,7 +322,7 @@ const PackageDetails = (props: Props) => {
             </div>
             {/* suggested section  */}
             <div className='col-start-2 col-end-12'>
-                <FeaturedPackage />
+                <SuggestedPackage />
             </div>
         </div>
     )

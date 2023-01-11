@@ -21,7 +21,7 @@ const aboutLinks = [
     },
     {
         text: 'blog',
-        path: '/blog',
+        path: '/blogs',
     },
 ]
 
@@ -88,7 +88,7 @@ const Footer = (props: Props) => {
     })
 
     return (
-        <div className='  bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
+        <div className='w-full  bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
             <div className='mb-4 grid grid-cols-1 place-items-center gap-5 lg:grid-cols-4'>
                 <Logo type='white' />
                 <div className='mb-5 grid w-full grid-cols-3 justify-items-center text-center lg:col-span-3 lg:text-left'>

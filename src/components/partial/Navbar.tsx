@@ -9,7 +9,7 @@ const navLinkItems = [
     { label: 'Blogs', path: '/blogs' },
 ]
 
-const NavBar = ({ isChange, variant = 'black' }: any) => {
+const NavBar = ({ isChange, variant }: any) => {
     const links = navLinkItems.map((link) => {
         return (
             <NavLink

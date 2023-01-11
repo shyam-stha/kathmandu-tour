@@ -2,6 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import calender from '../../assets/images/packageDetails/calender.svg'
 import schedule from '../../assets/images/packageDetails/schedule.svg'
 import visitors from '../../assets/images/packageDetails/visitors.svg'
+import { useNavigate } from 'react-router-dom'
 import { Group } from '@mantine/core'
 import InputField from './InputField'
 import DatePicker from './DatePicker'
@@ -17,13 +18,16 @@ const PackageReserveForm = (props: any) => {
         },
     })
 
+    const navigate = useNavigate()
+
     return (
-        <div className='bg-element-bg p-5 ring-1 ring-placeholder rounded-md'>
+        <div className='rounded-md bg-element-bg p-5 ring-1 ring-placeholder'>
             <FormProvider {...methods}>
                 <form
-                    onSubmit={methods.handleSubmit((data) =>
+                    onSubmit={methods.handleSubmit((data) => {
+                        navigate('/book')
                         console.log(data)
-                    )}>
+                    })}>
                     <Group spacing={6}>
                         <DatePicker
                             name='book_date'
