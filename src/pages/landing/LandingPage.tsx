@@ -3,7 +3,6 @@ import FeaturedPackage from '../../components/container/FeaturedPackage'
 import TourTypes from '../../components/container/TourTypes'
 import TopSites from '../../components/container/TopSites'
 import News from '../../components/container/News'
-import ChatOption from '../../components/common/ChatOpton'
 
 type Props = {}
 

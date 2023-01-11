@@ -1,14 +1,15 @@
-import Hero from '../components/container/Hero'
 import Footer from '../components/partial/Footer'
 import { Outlet } from 'react-router-dom'
 import NavBar from '../components/partial/Navbar'
-
-type Props = {}
+import ChatOption from '../components/common/ChatOpton'
 
 const MainLayout = (props: Props) => {
     return (
-        <div>
-            <NavBar variant='black'/>
+        <div className='relative'>
+            <NavBar variant='black' />
+            <div className='fixed right-6 top-[88vh] z-50'>
+                <ChatOption />
+            </div>
             <Outlet />
             <Footer />
         </div>
