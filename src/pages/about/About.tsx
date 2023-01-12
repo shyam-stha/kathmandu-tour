@@ -21,7 +21,7 @@ const About = (props: Props) => {
                     </h1>
                     <img
                         src={gosaikunda}
-                        className='rounded-md pb-5'
+                        className='mb-5 rounded-md'
                     />
                     <p className='text-justify'>
                         <p>
@@ -163,6 +163,13 @@ const About = (props: Props) => {
                             some extra cash , no cards please.
                         </strong>
                     </p>
+                    <div className='my-5 grid grid-cols-5'>
+                        <video
+                            controls
+                            className='col-start-2 col-end-5 h-full w-full rounded-md '>
+                            <source src='https://encrypted-vtbn0.gstatic.com/video?q=tbn:ANd9GcTjjcgdViHPrSwqMFgII1sIWyAsnVpWwOEiGw' />
+                        </video>
+                    </div>
                 </div>
                 <div className='col-span-2'>
                     <h1 className='text-[20px] font-semibold'>Similar News</h1>

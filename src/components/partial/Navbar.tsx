@@ -13,6 +13,7 @@ const NavBar = ({ isChange, variant }: any) => {
     const links = navLinkItems.map((link) => {
         return (
             <NavLink
+                className={({ isActive }) => (isActive ? 'border-b-2' : '')}
                 to={link.path}
                 key={link.label}>
                 {link.label}

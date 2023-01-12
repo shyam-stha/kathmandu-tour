@@ -28,7 +28,7 @@ const PackageReserveForm = (props: any) => {
                         navigate('/book')
                         console.log(data)
                     })}>
-                    <Group spacing={6}>
+                    <Group spacing={10}>
                         <DatePicker
                             name='book_date'
                             placeholder={new Date().toDateString()}
