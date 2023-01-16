@@ -1,42 +1,59 @@
+import { Carousel } from '@mantine/carousel'
 import CardTourType from '../common/CardTourType'
-import bikeRide from '../../assets/images/cards/bike_tour.jpg'
+import rider from '../../assets/images/cards/bike_tour.jpg'
+import Title from '../common/Title'
 
-type Props = {}
-
-const TourTypes = (props: Props) => {
-    return (
-        <div className='mt-[100px]'>
-            <h1 className='Font-sans mb-[30px] text-[32px] font-bold leading-[36px] tracking-[1px]'>
-                Tour Types
-            </h1>
-            <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-                <CardTourType
-                    image={bikeRide}
-                    title='Bike Tour'
-                />
-            </div>
+const TourTypes = () => (
+    <section className='flex flex-col gap-6'>
+        <Title title='Tour Types' />
+        <div>
+            <Carousel
+                align={'start'}
+                slideGap={'sm'}
+                slideSize={'18%'}
+                height={'400px'}
+                miw={'300px'}
+                withControls
+                loop>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <CardTourType
+                        image={rider}
+                        title='Bike Tour'
+                    />
+                </Carousel.Slide>
+            </Carousel>
         </div>
-    )
-}
+    </section>
+)
 
 export default TourTypes

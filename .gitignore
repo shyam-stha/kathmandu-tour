@@ -14,6 +14,7 @@ dist-ssr
 
 #myfiles
 notes.txt/
+test/
 
 # Editor directories and files
 .vscode/*

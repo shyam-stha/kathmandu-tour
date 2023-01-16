@@ -8,6 +8,9 @@ import Blogs from '../pages/blog/Blogs'
 import Booking from '../pages/booking/Booking'
 import Payment from '../pages/payment/Payment'
 import About from '../pages/about/About'
+import Story from '../components/common/Story'
+import Team from '../components/common/Team'
+import VisionMission from '../components/common/VisionMission'
 
 const Public = (
     <>
@@ -27,9 +30,14 @@ const Public = (
                 element={<AvailablePackage />}
             />
             <Route
-                path='/about'
+                path='/about/'
                 element={<About />}
-            />
+            >
+                <Route index element={<Story />} />
+                <Route path='story' element={<Story />} />
+                <Route path='team' element={<Team />} />
+                <Route path='vision' element={<VisionMission />} />
+            </Route>
             <Route
                 path='/blogs'
                 element={<Blogs />}

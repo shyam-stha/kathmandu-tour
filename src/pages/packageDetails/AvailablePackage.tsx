@@ -1,35 +1,42 @@
-import React from 'react'
 import CardPackage from '../../components/common/CardPackage'
 import { Select } from '@mantine/core'
+import Title from '../../components/common/Title'
 
-type Props = {}
-
-const AvailablePackage = (props: Props) => {
+const AvailablePackage = () => {
     return (
-        <div className='grid grid-cols-12 pb-10 pt-[90px]'>
-            <div className='col-start-2 col-end-12'>
-                <div className='flex items-center justify-between pb-10'>
-                    <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active'>
-                        Available Packages
-                    </h1>
-                    <Select
-                        placeholder='Filter'
-                        data={['By location', 'By name', 'By date']}
-                    />
+        <section className='pb-12 pt-32 px-10 sm:px-32 md:px-16 lg:px-10 xl:px-24'>
+            <div className='mb-7 flex justify-between   '>
+                <Title title='Available Packages' />
+                <Select
+                    placeholder='Filter'
+                    data={['..']}
+                    className='hidden md:flex '
+                />
+            </div>
+            <div className='grid grid-cols-12 gap-5 lg:gap-10'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardPackage />
                 </div>
-                <div className='grid grid-cols-3 gap-x-10 gap-y-5'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
-                    <CardPackage />
-                    <CardPackage />
-                    <CardPackage />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
                     <CardPackage />
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

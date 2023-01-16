@@ -1,29 +1,32 @@
 import CardTopSite from '../common/CardTopSite'
-import DarbarSqr from '../../assets/images/cards/darbar_sqr.jpg'
+import darbarSqr from '../../assets/images/cards/darbar_sqr.jpg'
+import Title from '../common/Title'
 
-type Props = {}
-
-const TopSites = (props: Props) => {
+function TopSites() {
     return (
-        <div className='mt-[100px]'>
-            <h1 className='Font-sans mb-[30px] text-[32px] font-bold leading-[36px] tracking-[1px]'>
-                Top Sites to visit
-            </h1>
-            <div className='grid grid-cols-1 place-items-center gap-y-10 lg:grid-cols-2 2xl:flex 2xl:justify-between '>
-                <CardTopSite
-                    image={DarbarSqr}
-                    title='Kathmandu Darbar Square'
-                />
-                <CardTopSite
-                    image={DarbarSqr}
-                    title='Kathmandu Darbar Square'
-                />
-                <CardTopSite
-                    image={DarbarSqr}
-                    title='Kathmandu Darbar Square  '
-                />
+        <section className='flex flex-col gap-6'>
+            <Title title='Top Sites to Visit' />
+            <div className='grid grid-cols-12 gap-y-5 sm:gap-x-5 md:place-content-between lg:place-content-between'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+                    <CardTopSite
+                        title='Visit Darbar Square'
+                        image={darbarSqr}
+                    />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+                    <CardTopSite
+                        title='Visit Darbar Square'
+                        image={darbarSqr}
+                    />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+                    <CardTopSite
+                        title='Visit Darbar Square'
+                        image={darbarSqr}
+                    />
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -1,85 +1,109 @@
-import Logo from './Logo'
-import Search from '../../assets/images/nav/search.svg'
-import SearchBlack from '../../assets/images/nav/search_black.svg'
-import { NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
+import Logo from '../partial/Logo'
+import { Burger } from '@mantine/core'
+import search from '../../assets/images/nav/search.svg'
+import searchBlack from '../../assets/images/nav/search_black.svg'
 
 const navLinkItems = [
-    { label: 'Packages', path: '/packages' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Blogs', path: '/blogs' },
+    {
+        title: 'Packages',
+        path: '/packages',
+    },
+    {
+        title: 'About Us',
+        path: '/about',
+    },
+    {
+        title: 'Blogs',
+        path: '/blogs',
+    },
 ]
 
-const NavBar = ({ isChange, variant }: any) => {
-    const links = navLinkItems.map((link) => {
+const ResponsiveNav = () => {
+    const [opened, setOpened] = useState(false)
+    const [isLanding, setIsLanding] = useState(false)
+    const location = useLocation()
+
+    const title = opened ? 'Close navigation' : 'Open navigation'
+
+    useEffect(() => {
+        if (location.pathname == '/') {
+            setIsLanding(true)
+        } else if (location.pathname != '/') {
+            setIsLanding(false)
+        }
+    }, [location])
+
+    const navItems = navLinkItems.map((item) => {
         return (
             <NavLink
-                className={({ isActive }) => (isActive ? 'border-b-2' : '')}
-                to={link.path}
-                key={link.label}>
-                {link.label}
+                key={item.title}
+                to={item.path}
+                onClick={() => setOpened(false)}
+                className={({ isActive }) =>
+                    isActive
+                        ? 'border-b-2 border-title-active font-semibold'
+                        : ''
+                }>
+                {item.title}
             </NavLink>
         )
     })
 
-    if (variant == 'black') {
-        return (
-            <div
-                className={` container fixed z-50 flex h-[90px] w-[100vw] items-center justify-between px-[80px]`}>
-                <div className='shrink-0'>
-                    <Logo type='black' />
-                </div>
+    return (
+        <nav
+            className={`fixed right-0 left-0 z-50 flex h-20 min-w-[300px] items-center justify-between border-b-[1px] border-b-off-white px-10 sm:border-none sm:px-32 md:px-16 lg:px-10 xl:px-24 ${
+                isLanding
+                    ? ' bg-transparent text-off-white'
+                    : 'bg-white text-title-active'
+            }`}>
+            <section>                                                                                                   
+                <Logo
+                    type={isLanding ? 'white' : 'black'}
+                    className='h-14'
+                />
+            </section>
+            <section className='md:32 hidden flex-1 px-20 lg:flex'>
                 <div
-                    className={` hidden h-[55px] w-[535px] cursor-text items-center rounded-[8px] ${
-                        isChange ? ' bg-[#eff0f686]' : ' bg-[#EFF0F633]'
-                    } py-[8px] px-[24px] md:hidden xl:flex`}>
+                    className={`flex h-12 w-full items-center gap-5 overflow-hidden rounded-md bg-[#7E7E7E33] px-5 ${
+                        isLanding ? 'bg-[#EFF0F633]' : 'bg-[#7E7E7E33]'
+                    }`}>
                     <img
-                        src={SearchBlack}
+                        src={isLanding ? search : searchBlack}
                         alt='Search'
-                        className={`text-gray-700' h-[20px] w-[20px]  `}
+                        className={`h-5 w-5`}
                     />
                     <input
+                        placeholder='Search...'
                         type='text'
-                        placeholder='Search'
-                        className={`text-gray-900 placeholder:text-gray-700 ml-[16px] w-full bg-transparent focus:outline-none`}
+                        className={`w-full bg-transparent py-2 text-lg font-[500]  focus:outline-none ${
+                            isLanding
+                                ? 'placeholder:text-line'
+                                : 'placeholder:text-placeholder'
+                        }`}
                     />
                 </div>
-                <div className='flex gap-[40px]'>{links}</div>
-            </div>
-        )
-    } else {
-        return (
-            <div
-                className={`container fixed z-50 flex h-[80px] w-[100vw] items-center justify-between px-[80px] text-[#FCFCFC] ${
-                    isChange ? 'bg-gray-300 text-black' : ''
-                }`}>
-                <div className='shrink-0'>
-                    <Logo type={isChange ? 'black' : 'colored'} />
-                </div>
-                <div
-                    className={` hidden h-[55px] w-[535px] cursor-text items-center rounded-[8px] ${
-                        isChange ? ' bg-[#eff0f686]' : ' bg-[#EFF0F633]'
-                    } py-[8px] px-[24px] md:hidden xl:flex`}>
-                    <img
-                        src={isChange ? SearchBlack : Search}
-                        alt='Search'
-                        className={`h-[20px] w-[20px] ${
-                            isChange ? 'text-gray-700' : ''
-                        } `}
+            </section>
+            <section className=''>
+                <div className='flex flex-col sm:hidden'>
+                    <Burger
+                        opened={opened}
+                        color={isLanding ? '#FCFCFC' : '#000'}
+                        onClick={() => setOpened((prev) => !prev)}
+                        title={title}
                     />
-                    <input
-                        type='text'
-                        placeholder='Search'
-                        className={`w-ful ml-[16px] w-full bg-transparent  ${
-                            isChange
-                                ? 'placeholder:text-gray-700'
-                                : 'placeholder:text-[#D9DBE9]'
-                        } focus:outline-none`}
-                    />
+                    <div
+                        className={`absolute top-20 right-0 ${
+                            opened ? 'flex' : 'hidden'
+                        } h-36 w-full flex-col justify-center gap-2 bg-label px-10`}>
+                        {navItems}
+                    </div>
                 </div>
-                <div className='flex gap-[40px]'>{links}</div>
-            </div>
-        )
-    }
+                <div className='hidden gap-10 sm:flex '>{navItems}</div>
+            </section>
+        </nav>
+    )
 }
 
-export default NavBar
+export default ResponsiveNav

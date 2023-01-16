@@ -15,10 +15,10 @@
 
 # problems
 
-<!-- Word Break -->
-<!-- padding in input field -->
+<!-- Word Break --> clamp, spoiler
+<!-- padding in input field --> base remove
 <!-- Readability and code structure -->
-<!-- Scrolling -->
+<!-- Scrolling --> 
 <!-- Navigation -->
 <!-- Navigation -->
 <!-- terms and disabled -->

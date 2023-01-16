@@ -1,31 +1,43 @@
-import React from 'react'
-import CardBlogsSmall from '../../components/common/CardBlogSmall'
+import CardBlog from '../../components/common/CardBlog'
+import { Select } from '@mantine/core'
+import Title from '../../components/common/Title'
 
-type Props = {}
-
-const Blogs = (props: Props) => {
+const AvailablePackage = () => {
     return (
-        <div className='grid grid-cols-12 pb-5 pt-[90px]'>
-            <div className='col-start-2 col-end-12'>
-                <div>
-                    <h1 className='text-[32px] font-[700] tracking-[1px] text-title-active pb-5'>
-                        Blogs
-                    </h1>
+        <section className='px-10 pb-12 pt-32 sm:px-32 md:px-16 lg:px-10 xl:px-24'>
+            <div className='mb-7 flex justify-between   '>
+                <Title title='All Blogs' />
+                <Select
+                    placeholder='Filter'
+                    data={['..']}
+                    className='hidden md:flex '
+                />
+            </div>
+            <div className='grid grid-cols-12 gap-5 lg:gap-10'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
                 </div>
-                <div className='grid grid-cols-3 gap-5'>
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
-                    <CardBlogsSmall />
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
+                </div>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4 '>
+                    <CardBlog />
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
-export default Blogs
+export default AvailablePackage

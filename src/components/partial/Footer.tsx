@@ -1,117 +1,102 @@
-import { Divider, Text } from '@mantine/core'
+import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import facebook from '../../assets/images/footer/facebook.svg'
-import instagram from '../../assets/images/footer/instagram.svg'
-import Logo from './Logo'
+import { Divider } from '@mantine/core'
+import Logo from '../partial/Logo'
+import {
+    aboutLinks,
+    socialLinks,
+    supportLinks,
+} from '../../utils/constants/footer'
 
-type Props = {}
+type FooterItemPropsTypes = {
+    path: string
+    text: string
+    icon?: any
+}
 
-const aboutLinks = [
-    {
-        text: 'Our story',
-        path: '/story',
-    },
-    {
-        text: 'Team',
-        path: '/team',
-    },
-    {
-        text: 'Our vision',
-        path: '/vision',
-    },
-    {
-        text: 'blog',
-        path: '/blogs',
-    },
-]
+type FooterHeadingsPropsTypes = {
+    title: string
+}
 
-const supportLinks = [
-    {
-        text: 'Help center',
-        path: '/help',
-    },
-    {
-        text: 'Term & Conidtions',
-        path: '/terms',
-    },
-    {
-        text: 'Data Policies',
-        path: '/policies',
-    },
-]
+type FooterSectionPropsTypes = {
+    children: JSX.Element | JSX.Element[]
+    title: string
+}
 
-const socialLinks = [
-    {
-        text: 'Facebook',
-        path: '/facebook',
-        icon: facebook,
-    },
-    {
-        text: 'Instagram',
-        path: '/instagram',
-        icon: instagram,
-    },
-]
+export const Heading = ({ title }: FooterHeadingsPropsTypes) => (
+    <h1 className='mb-5 text-lg font-bold'>{title}</h1>
+)
 
-const Footer = (props: Props) => {
-    const aboutLinkItems = aboutLinks.map((item) => {
-        return (
-            <div
-                key={item.text}
-                className='mb-[8px]'>
-                <NavLink to={item.path}>{item.text}</NavLink>
-            </div>
-        )
-    })
-    const supportLinkItems = supportLinks.map((item) => {
-        return (
-            <div
-                key={item.text}
-                className='mb-[8px]'>
-                <NavLink to={item.path}>{item.text}</NavLink>
-            </div>
-        )
-    })
-    const socialLinkItems = socialLinks.map((item) => {
-        return (
-            <div
-                key={item.text}
-                className='mb-[8px] flex items-center gap-3'>
-                <img
-                    src={item.icon}
-                    alt={item.text}
-                    className='h-[20px] w-[20px]'
-                />
-                <NavLink to={item.path}>{item.text}</NavLink>
-            </div>
-        )
-    })
+export const FooterItem: FC<FooterItemPropsTypes> = ({ path, text, icon }) => (
+    <div className='mb-2 flex gap-2 text-sm'>
+        {icon ? <img src={icon} /> : ''}
+        <NavLink to={path}>{text}</NavLink>
+    </div>
+)
 
+export const FooterSections: FC<FooterSectionPropsTypes> = ({
+    children,
+    title,
+}) => (
+    <div className='col-span-4 md:col-span-3'>
+        <Heading title={title} />
+        <div>{children}</div>
+    </div>
+)
+
+const ResponsiveFooter = () => {
     return (
-        <div className='w-full  bg-[#14142B] px-[100px] pt-[30px] font-sans text-[#FCFCFC]'>
-            <div className='mb-4 grid grid-cols-1 place-items-center gap-5 lg:grid-cols-4'>
-                <Logo type='white' />
-                <div className='mb-5 grid w-full grid-cols-3 justify-items-center text-center lg:col-span-3 lg:text-left'>
-                    <div>
-                        <h2 className='mb-4 text-[20px] font-bold'>About</h2>
-                        {aboutLinkItems}
-                    </div>
-                    <div>
-                        <h2 className='mb-4 text-[20px] font-bold'>Support</h2>
-                        {supportLinkItems}
-                    </div>
-                    <div>
-                        <h2 className='mb-4 text-[20px] font-bold'>Social</h2>
-                        {socialLinkItems}
-                    </div>
+        <footer className='min-w-full bg-title-active  text-off-white sm:px-32 md:py-5 md:px-16 lg:py-7 lg:px-10 xl:px-24'>
+            <section className='mb-5 grid grid-cols-12 justify-items-center gap-5'>
+                <div className='col-span-12 md:col-span-3'>
+                    <Logo
+                        type='white'
+                        className='w-40'
+                    />
                 </div>
-            </div>
-            <Divider color='#FCFCFC' />
-            <div className='py-[20px] text-center text-[18px] lg:text-left'>
-                <Text>&#169; 2022, All Rights Reserved</Text>
-            </div>
-        </div>
+                <FooterSections title='About'>
+                    {aboutLinks?.map((item) => {
+                        return (
+                            <FooterItem
+                                key={item.text}
+                                text={item.text}
+                                path={item.path}
+                            />
+                        )
+                    })}
+                </FooterSections>
+                <FooterSections title='Support'>
+                    {supportLinks?.map((item) => {
+                        return (
+                            <FooterItem
+                                key={item.text}
+                                text={item.text}
+                                path={item.path}
+                            />
+                        )
+                    })}
+                </FooterSections>
+                <FooterSections title='Social'>
+                    {socialLinks?.map((item) => {
+                        return (
+                            <FooterItem
+                                key={item.text}
+                                text={item.text}
+                                path={item.path}
+                                icon={item.icon}
+                            />
+                        )
+                    })}
+                </FooterSections>
+            </section>
+            <Divider color={'#FCFCFC'} />
+            <section className='flex justify-center md:justify-start'>
+                <h1 className='py-3 text-sm'>
+                    &#169; 2022, All Rights Reserved
+                </h1>
+            </section>
+        </footer>
     )
 }
 
-export default Footer
+export default ResponsiveFooter

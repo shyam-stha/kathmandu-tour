@@ -84,13 +84,13 @@ const CardPackage = (props: Props) => {
 
     return (
         <div
-            className='bg-white shadow-gray-100 h-[380px] w-[416px] cursor-pointer overflow-hidden rounded-md font-sans shadow-md'
+            className='bg-off-white  flex min-w-[300px] cursor-pointer flex-col overflow-hidden rounded-md font-sans shadow-sm '
             onClick={() => NavigateTo()}>
-            <div className='relative'>
+            <div className='relative '>
                 <img
                     src={hero}
                     alt='image'
-                    className='h-[250px] w-full object-fill '
+                    className='h-[250px] w-full object-cover'
                 />
                 <Group className='text-white absolute bottom-3 left-3'>
                     {tourTripIcons?.map((icon) => {
@@ -112,9 +112,9 @@ const CardPackage = (props: Props) => {
                     })}
                 </Group>
             </div>
-            <div className='pl-[15px] pt-[5px] '>
-                <h2 className='text-[24px] font-[700]'>Experience nepal now</h2>
-                <div className='grid grid-cols-2 pt-[5px]'>{items}</div>
+            <div className=' p-3'>
+                <h2 className='text-lg font-bold'>Experience nepal now</h2>
+                <div className='grid grid-cols-2 pt-1 font-bold '>{items}</div>
             </div>
         </div>
     )

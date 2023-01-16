@@ -1,15 +1,17 @@
+import { Group } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
 import { FormProvider, useForm } from 'react-hook-form'
 import calender from '../../assets/images/packageDetails/calender.svg'
 import schedule from '../../assets/images/packageDetails/schedule.svg'
 import visitors from '../../assets/images/packageDetails/visitors.svg'
-import { useNavigate } from 'react-router-dom'
-import { Group } from '@mantine/core'
 import InputField from './InputField'
 import DatePicker from './DatePicker'
 import TimeInput from './TimeInput'
 import Button from './Button'
 
-const PackageReserveForm = (props: any) => {
+const PackageReserveForm = () => {
+    const navigate = useNavigate()
+
     const methods = useForm({
         defaultValues: {
             book_date: '',
@@ -18,17 +20,15 @@ const PackageReserveForm = (props: any) => {
         },
     })
 
-    const navigate = useNavigate()
-
     return (
-        <div className='rounded-md bg-element-bg p-5 ring-1 ring-placeholder'>
+        <div className='flex h-80 items-center rounded-md bg-element-bg p-5 ring-1 ring-placeholder'>
             <FormProvider {...methods}>
                 <form
                     onSubmit={methods.handleSubmit((data) => {
                         navigate('/book')
                         console.log(data)
                     })}>
-                    <Group spacing={10}>
+                    <Group spacing={20}>
                         <DatePicker
                             name='book_date'
                             placeholder={new Date().toDateString()}
