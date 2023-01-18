@@ -9,7 +9,7 @@ import {
 } from '../../utils/constants/packages'
 import swayambhu from '../../assets/images/packageDetails/swayambhu.jpg'
 import task from '../../assets/images/packageDetails/task.svg'
-import avatar from '../../assets/images/packageDetails/avatar.svg'
+import avatar from '../../assets/images/packageDetails/Avatar.svg'
 import { Link } from 'react-router-dom'
 import Title from '../../components/common/Title'
 import TourSchedule from '../../components/common/TourSchedule'

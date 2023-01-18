@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import Logo from '../partial/Logo'
 import { Burger } from '@mantine/core'
-import search from '../../assets/images/nav/search.svg'
+import search from '../../assets/images/nav/Search.svg'
 import searchBlack from '../../assets/images/nav/search_black.svg'
 
 const navLinkItems = [
@@ -58,7 +58,7 @@ const ResponsiveNav = () => {
                     ? ' bg-transparent text-off-white'
                     : 'bg-white text-title-active'
             }`}>
-            <section>                                                                                                   
+            <section>
                 <Logo
                     type={isLanding ? 'white' : 'black'}
                     className='h-14'
