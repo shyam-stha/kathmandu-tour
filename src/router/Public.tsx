@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
 import LandingPage from '../pages/landing/LandingPage'
 import PackageDetails from '../pages/packageDetails/PackageDetails'
@@ -11,6 +11,7 @@ import About from '../pages/about/About'
 import Story from '../components/common/Story'
 import Team from '../components/common/Team'
 import VisionMission from '../components/common/VisionMission'
+import BlogDescription from '../pages/about/BlogDescription'
 
 const Public = (
     <>
@@ -31,16 +32,32 @@ const Public = (
             />
             <Route
                 path='/about/'
-                element={<About />}
-            >
-                <Route index element={<Story />} />
-                <Route path='story' element={<Story />} />
-                <Route path='team' element={<Team />} />
-                <Route path='vision' element={<VisionMission />} />
+                element={<About />}>
+                <Route
+                    index
+                    element={<Story />}
+                />
+                <Route
+                    path='story'
+                    element={<Story />}
+                />
+                <Route
+                    path='team'
+                    element={<Team />}
+                />
+                <Route
+                    path='vision'
+                    element={<VisionMission />}
+                />
             </Route>
             <Route
                 path='/blogs'
                 element={<Blogs />}
+            />
+
+            <Route
+                path='/blog-details'
+                element={<BlogDescription />}
             />
             <Route
                 path='/book'

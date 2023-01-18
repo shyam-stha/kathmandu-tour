@@ -1,8 +1,11 @@
 import hero from '../../assets/images/landing/hero.png'
+import { useNavigate } from 'react-router-dom'
 
 const CardBlog = () => {
+    const navigate = useNavigate()
+
     return (
-        <div className='relative min-h-[420px] min-w-[300px] overflow-hidden rounded-md font-sans tracking-[0.75px] text-element-bg '>
+        <div className='relative min-h-[420px] min-w-[300px] overflow-hidden rounded-md font-sans tracking-[0.75px] text-element-bg ' onClick={()=>navigate('/blog-details')}>
             <img
                 src={hero}
                 alt='image'

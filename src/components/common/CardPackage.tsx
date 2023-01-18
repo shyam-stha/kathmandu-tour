@@ -2,68 +2,9 @@ import { Group, Tooltip } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import CardItems from './CardItem'
 import hero from '../../assets/images/landing/hero.png'
-import cost from '../../assets/images/cards/cost.svg'
-import booking from '../../assets/images/cards/booking.svg'
-import time from '../../assets/images/cards/time.svg'
-import views from '../../assets/images/cards/views.svg'
-import nightStay from '../../assets/images/cards/night_stay.svg'
-import bike from '../../assets/images/cards/bike.svg'
-import foodBank from '../../assets/images/cards/food_bank.svg'
-import familyRestroom from '../../assets/images/cards/family_restroom.svg'
-import walk from '../../assets/images/cards/walk.svg'
+import { tourTripIcons, cardItemObj } from '../../utils/constants/packages'
 
 type Props = {}
-
-const cardItemObj = [
-    {
-        icon: cost,
-        text: 'pp',
-        value: '34',
-    },
-    {
-        icon: booking,
-        text: 'booking',
-        value: '5',
-    },
-    {
-        icon: time,
-        text: 'Hours',
-        value: '1',
-    },
-    {
-        icon: views,
-        text: 'Views',
-        value: '8',
-    },
-]
-
-const tourTripIcons = [
-    {
-        icon: bike,
-        visible: true,
-        tooltip: 'Bike',
-    },
-    {
-        icon: familyRestroom,
-        visible: true,
-        tooltip: 'Family Restroom',
-    },
-    {
-        icon: foodBank,
-        visible: true,
-        tooltip: 'Food Bank',
-    },
-    {
-        icon: walk,
-        visible: true,
-        tooltip: 'Walk',
-    },
-    {
-        icon: nightStay,
-        visible: true,
-        tooltip: 'Night Stay',
-    },
-]
 
 const CardPackage = (props: Props) => {
     const navigate = useNavigate()
@@ -84,7 +25,7 @@ const CardPackage = (props: Props) => {
 
     return (
         <div
-            className='bg-off-white  flex min-w-[300px] cursor-pointer flex-col overflow-hidden rounded-md font-sans shadow-sm '
+            className='flex  min-w-[300px] cursor-pointer flex-col overflow-hidden rounded-md bg-off-white font-sans shadow-sm '
             onClick={() => NavigateTo()}>
             <div className='relative '>
                 <img
@@ -92,7 +33,7 @@ const CardPackage = (props: Props) => {
                     alt='image'
                     className='h-[250px] w-full object-cover'
                 />
-                <Group className='text-white absolute bottom-3 left-3'>
+                <Group className='absolute bottom-3 left-3 text-white'>
                     {tourTripIcons?.map((icon) => {
                         return (
                             <Tooltip

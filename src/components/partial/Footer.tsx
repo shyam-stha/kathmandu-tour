@@ -46,7 +46,7 @@ export const FooterSections: FC<FooterSectionPropsTypes> = ({
 
 const ResponsiveFooter = () => {
     return (
-        <footer className='min-w-full bg-title-active  text-off-white sm:px-32 md:py-5 md:px-16 lg:py-7 lg:px-10 xl:px-24'>
+        <footer className='bg-title-active  text-off-white sm:px-32 md:py-5 md:px-16 lg:py-7 lg:px-10 xl:px-24'>
             <section className='mb-5 grid grid-cols-12 justify-items-center gap-5'>
                 <div className='col-span-12 md:col-span-3'>
                     <Logo

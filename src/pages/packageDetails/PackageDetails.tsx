@@ -18,7 +18,7 @@ import SuggestedPackage from '../../components/container/SuggestedPackage'
 
 const PackageDetails = () => {
     return (
-        <div className='grid grid-cols-12 gap-10 px-10 py-[90px]'>
+        <div className='grid grid-cols-12 gap-5 py-[90px] px-10 lg:gap-x-10'>
             <section className='col-span-12'>
                 <Title title='Sunset Walk at Swayambhu' />
                 <div className='flex gap-5'>
@@ -27,7 +27,7 @@ const PackageDetails = () => {
                 </div>
             </section>
             <section className='col-span-12 flex flex-col gap-5 md:col-span-8 '>
-                <section className='col-span-12 flex flex-col gap-5'>
+                <section className='flex flex-col gap-5'>
                     <img
                         src={swayambhu}
                         alt='Image'
@@ -48,7 +48,7 @@ const PackageDetails = () => {
                         </Link>
                     </div>
                     <div className='grid grid-cols-7 gap-5'>
-                        <div className='col-span-full grid grid-cols-12 gap-2 md:col-span-3'>
+                        <div className='col-span-full grid grid-cols-12 place-items-start gap-2 md:col-span-3'>
                             {locationDetails?.map((detail) => {
                                 return (
                                     <div
@@ -72,7 +72,7 @@ const PackageDetails = () => {
                                 )
                             })}
                         </div>
-                        <div className='col-span-full flex justify-center md:col-span-3'>
+                        <div className='col-span-full flex justify-center md:col-span-4'>
                             <iframe
                                 src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.4632274016067!2d85.4255273751553!3d27.67207437620279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1aafec32df31%3A0xdda339e731af9bfd!2sBhaktapur%20Durbar%20Square!5e0!3m2!1sen!2snp!4v1673226954578!5m2!1sen!2snp'
                                 width={'100%'}

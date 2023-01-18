@@ -1,33 +1,50 @@
+import { useState } from 'react'
 import { Group } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { FormProvider, useForm } from 'react-hook-form'
 import calender from '../../assets/images/packageDetails/calender.svg'
 import schedule from '../../assets/images/packageDetails/schedule.svg'
-import visitors from '../../assets/images/packageDetails/visitors.svg'
-import InputField from './InputField'
+import visitor from '../../assets/images/packageDetails/visitors.svg'
 import DatePicker from './DatePicker'
 import TimeInput from './TimeInput'
 import Button from './Button'
 
 const PackageReserveForm = () => {
+    const [toggle, setToggle] = useState(false)
+    const [noa, setNoa] = useState(0)
+    const [noc, setNoc] = useState(0)
     const navigate = useNavigate()
 
     const methods = useForm({
         defaultValues: {
             book_date: '',
             book_time: '',
-            visitors: '',
+            noc: 0,
+            noa: 0,
         },
     })
 
+    const Decrement = (e: any, value: any, setValue: any) => {
+        e.preventDefault()
+        value > 0 && setValue((prev: any) => prev - 1)
+    }
+
+    const Increment = (e: any, setValue: any) => {
+        e.preventDefault()
+        setValue((prev: any) => prev + 1)
+    }
+
+    const OnSubmit = (data: any) => {
+        navigate('/book')
+        data.noc = noc
+        data.noa = noa
+        console.log(data)
+    }
+
     return (
-        <div className='flex h-80 items-center rounded-md bg-element-bg p-5 ring-1 ring-placeholder'>
+        <div className='flex items-center rounded-md bg-element-bg p-5 ring-1 ring-placeholder'>
             <FormProvider {...methods}>
-                <form
-                    onSubmit={methods.handleSubmit((data) => {
-                        navigate('/book')
-                        console.log(data)
-                    })}>
+                <form onSubmit={methods.handleSubmit(OnSubmit)}>
                     <Group spacing={20}>
                         <DatePicker
                             name='book_date'
@@ -48,24 +65,64 @@ const PackageReserveForm = () => {
                             className='w-full'
                             clearable
                         />
-                        <InputField
-                            name='visitors'
-                            placeholder='2 Adult, 1 Children'
-                            rules={{
-                                required: 'This is required',
-                                maxLength: {
-                                    value: 20,
-                                    message: 'Max length 5',
-                                },
-                                validate: (data: any) => {
-                                    if (data !== '2 Adults, 1 children') {
-                                        return 'Invalid value property '
-                                    }
-                                },
-                            }}
-                            icon={<img src={visitors} />}
-                            className='w-full text-error'
-                        />
+                        <div
+                            className='flex w-full items-center gap-3 rounded-md border-[1px] py-2 px-3 text-left text-sm text-placeholder hover:cursor-pointer'
+                            onClick={() => setToggle((prev) => !prev)}>
+                            <img
+                                src={visitor}
+                                alt='icon'
+                            />
+                            <span>2 Adults, 1 Children</span>
+                        </div>
+
+                        <section
+                            className={`${toggle ? 'block' : 'hidden'} w-full`}>
+                            <div className='flex w-full flex-col gap-2 '>
+                                <section className='flex w-full items-center justify-between rounded-md border-[1px] py-1 px-4'>
+                                    <h1 className='text-body'>No of Adults</h1>
+                                    <div className='flex items-center gap-4'>
+                                        <button
+                                            className='textlg h-10 w-10 rounded-full border-2 border-gdt-secondary font-bold active:translate-y-1'
+                                            onClick={(e) =>
+                                                Decrement(e, noa, setNoa)
+                                            }>
+                                            -
+                                        </button>
+                                        <span>{noa}</span>
+                                        <button
+                                            className='h-10 w-10 rounded-full border-2 border-error text-lg font-bold active:translate-y-1'
+                                            onClick={(e) =>
+                                                Increment(e, setNoa)
+                                            }>
+                                            +
+                                        </button>
+                                    </div>
+                                </section>
+                                <section className='flex w-full items-center justify-between rounded-md border-[1px] py-1 px-4'>
+                                    <h1 className='text-body'>
+                                        No of Children
+                                    </h1>
+                                    <div className='flex items-center gap-4'>
+                                        <button
+                                            className='textlg h-10   w-10 rounded-full border-2 border-gdt-secondary font-bold active:translate-y-1'
+                                            onClick={(e) =>
+                                                Decrement(e, noc, setNoc)
+                                            }>
+                                            -
+                                        </button>
+                                        <span>{noc}</span>
+                                        <button
+                                            className='h-10 w-10 rounded-full border-2 border-error text-lg font-bold active:translate-y-1'
+                                            onClick={(e) =>
+                                                Increment(e, setNoc)
+                                            }>
+                                            +
+                                        </button>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+
                         <Button
                             type='submit'
                             variant='fill'

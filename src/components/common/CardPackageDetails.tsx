@@ -28,7 +28,7 @@ const CardPackageDetails = ({ onlyDetails }: any) => {
         navigate('/payment')
     }
     return (
-        <div className='rounded-md border-2 border-placeholder p-2'>
+        <div className='rounded-md border-2 border-placeholder p-2 min-w-[200px]'>
             <img
                 src={darbarSqr}
                 className='h-[150px] w-full rounded-md object-cover'
