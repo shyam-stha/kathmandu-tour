@@ -15,7 +15,7 @@ import showNotify from '../../../utils/notify'
 import { IBlogData } from '../../../utils/interfaces/IBlog'
 
 const BlogListAdmin = () => {
-    const [blogs, setBlogs] = useState<IBlogData[]>([])
+    const [blogs, setBlogs] = useState<any>([])
     const largerScreen = useMediaQuery('(min-width: 768px)')
     const navigate = useNavigate()
     const createBlog = () => {

@@ -9,10 +9,10 @@ import {
 import { ActionIcon, Badge, Button } from '@mantine/core'
 import { IconArrowLeft, IconArrowNarrowLeft } from '@tabler/icons'
 import showNotify from '../../../utils/notify'
-import { IBlogData } from '../../../utils/interfaces/IBlog'
+import { IBlogDetail } from '../../../utils/interfaces/IBlog'
 const BlogEdit = () => {
     const navigate = useNavigate()
-    const [blogDetail, setBlogDetail] = useState<IBlogData | {}>({})
+    const [blogDetail, setBlogDetail] = useState<IBlogDetail>({})
     const { blogId } = useParams()
 
     const getBlogDetail = async (id: string) => {
