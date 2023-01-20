@@ -1,5 +1,5 @@
 import { TextInput, Select } from '@mantine/core'
-import CardPackageDetails from '../../../components/common/users/package/CardPackageDetails'
+import CardPackageDetails from '../../../components/common/package/CardPackageDetails'
 import { useForm, Controller } from 'react-hook-form'
 
 type Props = {}

@@ -1,17 +1,17 @@
 import axios from './axios'
 
-const axiosInstance = axios.create({
-    baseURL: '/',
+const axiosInstance: any = axios.create({
+    baseURL: 'https://api-dev.citytours.app/api/v1',
 })
 
 // axiosInstance.interceptors.request.use()
 axiosInstance.interceptors.response.use(
-    function (response) {
+    function (response: any) {
         if (response.status === 200 && !!response.data.message) {
             return response.data
         }
     },
-    function (error) {
+    function (error: any) {
         if (error.response && error.response.status === 401) {
             console.log('unauthorized', error.response.data.message)
         }

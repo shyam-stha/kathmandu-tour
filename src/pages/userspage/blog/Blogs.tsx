@@ -1,4 +1,4 @@
-import CardBlog from '../../../components/common/users/blog/CardBlog'
+import CardBlog from '../../../components/common/blog/CardBlog'
 import { Select } from '@mantine/core'
 import Title from '../../../components/common/Title'
 

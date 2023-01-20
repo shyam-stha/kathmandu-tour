@@ -1,5 +1,5 @@
 import { Button, Group } from '@mantine/core'
-import { darbarSqr } from '../../../../assets/images/cards'
+import { darbarSqr } from '../../../assets/images/cards'
 import { useNavigate } from 'react-router-dom'
 
 const packageDetails = [
@@ -24,11 +24,11 @@ const packageDetails = [
 const CardPackageDetails = ({ onlyDetails }: any) => {
     const navigate = useNavigate()
 
-    const ReserveNow = () =>{
+    const ReserveNow = () => {
         navigate('/payment')
     }
     return (
-        <div className='rounded-md border-2 border-placeholder p-2 min-w-[200px]'>
+        <div className='min-w-[200px] rounded-md border-2 border-placeholder p-2'>
             <img
                 src={darbarSqr}
                 className='h-[150px] w-full rounded-md object-cover'
@@ -37,7 +37,9 @@ const CardPackageDetails = ({ onlyDetails }: any) => {
                 <h1 className='mt-4 mb-2 font-[700]'>Experience Nepal Now</h1>
                 {packageDetails?.map((detail) => {
                     return (
-                        <div className='flex justify-between' key={detail.title}>
+                        <div
+                            className='flex justify-between'
+                            key={detail.title}>
                             <h1>{detail.title}</h1>
                             <p>{detail.value}</p>
                         </div>
@@ -57,8 +59,7 @@ const CardPackageDetails = ({ onlyDetails }: any) => {
                             variant='filled'
                             className='bg-title-active'
                             fullWidth
-                            onClick={()=>ReserveNow()}
-                            >
+                            onClick={() => ReserveNow()}>
                             Reserve Your Spot
                         </Button>
                         <Button

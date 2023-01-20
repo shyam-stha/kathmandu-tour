@@ -1,5 +1,5 @@
 import { Carousel } from '@mantine/carousel'
-import CardPackage from '../../common/users/package/CardPackage'
+import CardPackage from '../../common/package/CardPackage'
 import Title from '../../common/Title'
 
 const PopularPackage = () => {

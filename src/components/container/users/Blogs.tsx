@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import CardBlog from '../../common/users/blog/CardBlog'
-import CardBlogSmall from '../../common/users/blog/CardBlogSmall'
+import CardBlog from '../../common/blog/CardBlog'
+import CardBlogSmall from '../../common/blog/CardBlogSmall'
 import Title from '../../common/Title'
 
 const Blogs = () => {

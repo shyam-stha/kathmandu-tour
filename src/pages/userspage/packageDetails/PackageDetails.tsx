@@ -10,8 +10,8 @@ import {
 import { task, avatar, swayambhu } from '../../../assets/images/packageDetails'
 import { Link } from 'react-router-dom'
 import Title from '../../../components/common/Title'
-import TourSchedule from '../../../components/common/users/package/TourSchedule'
-import PackageReserveForm from '../../../components/common/users/package/PackageReserveForm'
+import TourSchedule from '../../../components/common/package/TourSchedule'
+import PackageReserveForm from '../../../components/common/package/PackageReserveForm'
 import SuggestedPackage from '../../../components/container/users/SuggestedPackage'
 
 const PackageDetails = () => {

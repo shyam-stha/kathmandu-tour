@@ -1,15 +1,17 @@
-import { hero } from '../../../../assets/images/landing'
+import { hero } from '../../../assets/images/landing'
 import { useNavigate } from 'react-router-dom'
 
 const CardBlog = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='relative min-h-[420px] min-w-[300px] overflow-hidden rounded-md font-sans tracking-[0.75px] text-element-bg ' onClick={()=>navigate('/blog-details')}>
+        <div
+            className='relative min-h-[420px] min-w-[300px] overflow-hidden rounded-md font-sans tracking-[0.75px] text-element-bg '
+            onClick={() => navigate('/blog-details')}>
             <img
                 src={hero}
                 alt='image'
-                className='absolute inset-0 w-full h-full object-cover '
+                className='absolute inset-0 h-full w-full object-cover '
             />
             <div className=' absolute bottom-[30px] left-[30px] p-[10px] font-sans tracking-[1px] '>
                 <h2 className='text-xl font-bold'>Sunset Walk at Swyambhu</h2>

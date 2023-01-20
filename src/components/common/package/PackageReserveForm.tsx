@@ -6,10 +6,10 @@ import {
     calender,
     schedule,
     visitors,
-} from '../../../../assets/images/packageDetails'
-import DatePicker from '../../form/DatePicker'
-import TimeInput from '../../form/TimeInput'
-import Button from '../../form/Button'
+} from '../../../assets/images/packageDetails'
+import DatePicker from '../form/DatePicker'
+import TimeInput from '../form/TimeInput'
+import Button from '../form/Button'
 
 const PackageReserveForm = () => {
     const [toggle, setToggle] = useState(false)

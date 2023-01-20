@@ -1,4 +1,4 @@
-import CardTopSite from '../../common/users/package/CardTopSite'
+import CardTopSite from '../../common/package/CardTopSite'
 import { darbarSqr } from '../../../assets/images/cards'
 import Title from '../../common/Title'
 

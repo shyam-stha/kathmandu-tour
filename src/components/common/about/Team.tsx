@@ -1,6 +1,6 @@
 import CardTeamMember from './CardTeamMember'
 import TitleAbout from './TitleAbout'
-import { darbarSqr } from '../../../../assets/images/cards'
+import { darbarSqr } from '../../../assets/images/cards'
 
 const Team = () => (
     <section>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button, Checkbox, Switch, TextInput } from '@mantine/core'
 import { DatePicker } from '@mantine/dates'
 import { Link } from 'react-router-dom'
-import CardPackageDetails from '../../../components/common/users/package/CardPackageDetails'
+import CardPackageDetails from '../../../components/common/package/CardPackageDetails'
 import { useForm, Controller } from 'react-hook-form'
 
 type Props = {}

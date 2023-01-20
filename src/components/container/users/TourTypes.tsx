@@ -1,5 +1,5 @@
 import { Carousel } from '@mantine/carousel'
-import CardTourType from '../../common/users/package/CardTourType'
+import CardTourType from '../../common/package/CardTourType'
 import { bikeTour } from '../../../assets/images/cards'
 import Title from '../../common/Title'
 

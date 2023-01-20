@@ -8,4 +8,4 @@ import {
 export const APIGetAllBlogs = () => GetRequest('/')
 export const APIAddNewBlog = (data: any) => PostRequest('/', data)
 export const APIEditBlog = (data: any) => PutRequest('/', data)
-export const APIRemoveBlog = (data: any) => DeleteRequest('/')
+export const APIRemoveBlog = () => DeleteRequest('/')

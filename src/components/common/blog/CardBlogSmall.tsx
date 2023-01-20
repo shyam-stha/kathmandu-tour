@@ -1,4 +1,4 @@
-import { hero } from "../../../../assets/images/landing"
+import { hero } from '../../../assets/images/landing'
 
 const CardBlogSmall = () => {
     return (

@@ -1,11 +1,8 @@
 import { Group, Tooltip } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import CardItems from './CardItem'
-import { hero } from '../../../../assets/images/landing'
-import {
-    tourTripIcons,
-    cardItemObj,
-} from '../../../../utils/constants/packages'
+import { hero } from '../../../assets/images/landing'
+import { tourTripIcons, cardItemObj } from '../../../utils/constants/packages'
 
 type Props = {}
 

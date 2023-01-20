@@ -1,4 +1,4 @@
-import CardPackage from '../../../components/common/users/package/CardPackage'
+import CardPackage from '../../../components/common/package/CardPackage'
 import { Select } from '@mantine/core'
 import Title from '../../../components/common/Title'
 

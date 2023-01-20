@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import AboutHeader from '../../../components/common/users/about/AboutHeader'
+import AboutHeader from '../../../components/common/about/AboutHeader'
 
 const aboutNavlinks = [
     {
