@@ -1,12 +1,12 @@
 import { Navigate } from 'react-router-dom'
-
-const token = 975934
+import { getCityToken } from '../utils/localStorage'
 
 type IsAuthPropsType = {
     children: any
 }
 
 const IsAuth = ({ children }: IsAuthPropsType) => {
+    const token = getCityToken()
     return !!token ? (
         children
     ) : (

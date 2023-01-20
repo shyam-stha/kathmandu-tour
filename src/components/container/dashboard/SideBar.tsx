@@ -1,10 +1,18 @@
 import { Navbar, Tooltip } from '@mantine/core'
 import Logo from '../../partial/Logo'
 import { sideBarLinkList } from '../../../utils/constants/sidebar'
-import { NavLink } from 'react-router-dom'
+import { Navigate, NavLink, useNavigate } from 'react-router-dom'
 import { logout, logoMbl } from '../../../assets/images/dashboard'
+import showNotify from '../../../utils/notify'
 
 const SideBar = () => {
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.removeItem('city-token')
+        showNotify('success', 'Logged out successfully')
+        navigate('/')
+    }
+
     return (
         <Navbar
             sx={{ minHeight: '100%', border: 'none' }}
@@ -48,12 +56,14 @@ const SideBar = () => {
             </Navbar.Section>
             <Navbar.Section>
                 <Tooltip label='Log'>
-                    <NavLink to='/logout'>
+                    <div
+                        className='cursor-pointer'
+                        onClick={() => handleLogout()}>
                         <li className='flex list-none justify-center gap-2 p-4 hover:bg-background sm:justify-start sm:py-2 sm:pl-5 '>
                             <img src={logout} />
                             <span className='hidden sm:flex'>Logout</span>
                         </li>
-                    </NavLink>
+                    </div>
                 </Tooltip>
             </Navbar.Section>
         </Navbar>

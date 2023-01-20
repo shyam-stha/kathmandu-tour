@@ -1,22 +1,52 @@
-import axios from './axios'
-
+import axios from 'axios'
+import { getCityToken } from '../utils/localStorage'
 const axiosInstance: any = axios.create({
-    baseURL: 'https://api-dev.citytours.app/api/v1',
+    baseURL: 'http://localhost:8000/api/v1',
+    headers: {
+        'Content-Type': 'application/json',
+        // "X-Custom-Header": "foobar",
+    },
 })
 
-// axiosInstance.interceptors.request.use()
+// Add a request interceptor
+axiosInstance.interceptors.request.use(
+    function (config: any) {
+        const id_token = getCityToken()
+
+        try {
+            if (!!id_token) {
+                // @ts-ignore
+                config.headers['Authorization'] = `Bearer ${id_token}`
+            }
+
+            return config
+        } catch (err) {
+            // console.log("error in axios", err)
+        }
+
+        // Do something before request is sent
+        return config
+    },
+    function (error: any) {
+        // Do something with request error
+        return Promise.reject(error)
+    }
+)
+
+// Add a response interceptor
 axiosInstance.interceptors.response.use(
     function (response: any) {
-        if (response.status === 200 && !!response.data.message) {
-            return response.data
-        }
+        return response.data
     },
     function (error: any) {
         if (error.response && error.response.status === 401) {
-            console.log('unauthorized', error.response.data.message)
+            //when 401 i.e unauthorized comes
+            //write function to clear session
+            // console.log('its 401')
         }
+
         if (error.response && error.response.status === 403) {
-            console.log('Forbidden access', error.response.data.message)
+            // store.dispatch(errorNotify('not authorized'))
         }
 
         return Promise.reject(error?.response?.data?.message)
