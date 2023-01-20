@@ -1,6 +1,5 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Title from '../../../components/common/Title'
-import gosaikunda from '../../../assets/images/about/gosaikunda.jpg'
 import { useEffect, useState } from 'react'
 import {
     APIChangeBlogStatus,
@@ -10,9 +9,10 @@ import {
 import { ActionIcon, Badge, Button } from '@mantine/core'
 import { IconArrowLeft, IconArrowNarrowLeft } from '@tabler/icons'
 import showNotify from '../../../utils/notify'
+import { IBlogData } from '../../../utils/interfaces/IBlog'
 const BlogEdit = () => {
     const navigate = useNavigate()
-    const [blogDetail, setBlogDetail] = useState<any>({})
+    const [blogDetail, setBlogDetail] = useState<IBlogData | {}>({})
     const { blogId } = useParams()
 
     const getBlogDetail = async (id: string) => {
@@ -63,11 +63,9 @@ const BlogEdit = () => {
                 </section>
 
                 <div className='flex items-center justify-between pb-3'>
-                    <div>
-                        <h1 className='pb-4'>
-                            <Title title={blogDetail?.blog_title} />
-                        </h1>
-                    </div>
+                    <h1>
+                        <Title title={blogDetail?.blog_title} />
+                    </h1>
 
                     <Badge
                         size='xl'
@@ -82,7 +80,7 @@ const BlogEdit = () => {
 
                 <img
                     src={blogDetail?.blog_cover_image || blogDetail.blog_title}
-                    className='mb-5 rounded-md'
+                    className='mb-5 w-full rounded-md'
                 />
                 <div className='text-justify'>
                     <div
