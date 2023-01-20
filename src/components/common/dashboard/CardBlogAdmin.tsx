@@ -23,10 +23,10 @@ const CardBlogAdmin = (props: any) => {
                 src={blogDetail.blogCoverImage}
                 className='-z-10 h-full w-full object-cover'
             />
-            <div className=' text-md absolute bottom-5 left-5  text-white bg-blend-color-dodge  backdrop-blur-[3px] sm:text-lg'>
+            <div className=' text-md absolute bottom-0 left-0 right-0 h-16 flex items-center  text-white bg-blend-color-dodge  backdrop-blur-[3px] sm:text-lg'>
                 {blogDetail.blogTitle}
             </div>
-            {/* <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
+            <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
                 <ActionIcon
                     variant='filled'
                     onClick={() => navigate(`detail/${blogDetail.id}`)}>
@@ -37,7 +37,7 @@ const CardBlogAdmin = (props: any) => {
                     onClick={() => handleDelete(blogDetail.id)}>
                     <IconTrash size={32} />
                 </ActionIcon>
-            </div> */}
+            </div>
         </div>
     )
 }
