@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import Chat from '../../assets/images/cards/Chat.svg'
 
-const ChatOption = (props: any) => {
+const ChatOption = () => {
     return (
         <NavLink to='/chat'>
             <img

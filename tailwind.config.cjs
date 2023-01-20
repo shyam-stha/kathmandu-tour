@@ -22,7 +22,7 @@ module.exports = {
                 line: '#D9DBE9',
                 'input-bg': '#EFF0F6',
                 'element-bg': '#F7F7FC',
-                bacground: '#E5E5E5',
+                background: '#E5E5E5',
                 'off-white': '#FCFCFC',
                 primary: '#854D0E',
                 secondary: '#1E40AF',

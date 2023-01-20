@@ -1,5 +1,4 @@
-import facebook from '../../assets/images/footer/facebook.svg'
-import instagram from '../../assets/images/footer/instagram.svg'
+import { facebook,instagram } from "../../assets/images/footer"
 
 export const aboutLinks = [
     {

@@ -1,20 +1,19 @@
-import time from '../../assets/images/packageDetails/Time.svg'
-import location from '../../assets/images/packageDetails/gis_location.svg'
-import groups from '../../assets/images/packageDetails/groups.svg'
-import dollor from '../../assets/images/packageDetails/dollor.svg'
-import share from '../../assets/images/packageDetails/share.svg'
-import task from '../../assets/images/packageDetails/task_alt.svg'
-import avatar from '../../assets/images/packageDetails/avatar.svg'
-import TourSchedule from '../../components/common/TourSchedule'
-import cost from '../../assets/images/cards/cost.svg'
-import booking from '../../assets/images/cards/booking.svg'
-import clock from '../../assets/images/cards/time.svg'
-import views from '../../assets/images/cards/views.svg'
-import nightStay from '../../assets/images/cards/night_stay.svg'
-import bike from '../../assets/images/cards/bike.svg'
-import foodBank from '../../assets/images/cards/food_bank.svg'
-import familyRestroom from '../../assets/images/cards/family_restroom.svg'
-import walk from '../../assets/images/cards/walk.svg'
+import {
+    time,
+    gisLocation,
+    groups,
+    dollor,
+} from '../../assets/images/packageDetails'
+import {
+    booking,
+    cost,
+    views,
+    nightStay,
+    bike,
+    foodBank,
+    familyRestroom,
+    walk,
+} from '../../assets/images/cards'
 
 export const tourTypes = [
     { title: 'Bike Tour', image: '' },
@@ -34,7 +33,7 @@ export const locationDetails = [
     {
         title: 'Starting Location',
         value: 'Bhaktapur Darbar Square',
-        icon: location,
+        icon: gisLocation,
     },
     {
         title: 'Average Group',
@@ -107,7 +106,7 @@ export const cardItemObj = [
         value: '5',
     },
     {
-        icon: clock,
+        icon: time,
         text: 'Hours',
         value: '1',
     },

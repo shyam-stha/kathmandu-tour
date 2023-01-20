@@ -5,7 +5,7 @@ import ChatOption from '../components/common/ChatOpton'
 
 const MainLayout = () => {
     return (
-        <div className='relative bg-white'>
+        <div className='relative min-w-[350px] bg-white'>
             <NavBar />
             <div className='fixed right-6 top-[88vh] z-50'>
                 <ChatOption />

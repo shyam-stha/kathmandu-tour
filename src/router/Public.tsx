@@ -1,17 +1,18 @@
 import { Route } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
-import LandingPage from '../pages/landing/LandingPage'
-import PackageDetails from '../pages/packageDetails/PackageDetails'
-import PageNotFound from '../pages/Error/PageNotFound'
-import AvailablePackage from '../pages/packageDetails/AvailablePackage'
-import Blogs from '../pages/blog/Blogs'
-import Booking from '../pages/booking/Booking'
-import Payment from '../pages/payment/Payment'
-import About from '../pages/about/About'
-import Story from '../components/common/Story'
-import Team from '../components/common/Team'
-import VisionMission from '../components/common/VisionMission'
-import BlogDescription from '../pages/about/BlogDescription'
+import LandingPage from '../pages/userspage/landing/LandingPage'
+import PackageDetails from '../pages/userspage/packageDetails/PackageDetails'
+import PageNotFound from '../pages/userspage/Error/PageNotFound'
+import AvailablePackage from '../pages/userspage/packageDetails/AvailablePackage'
+import Blogs from '../pages/userspage/blog/Blogs'
+import Booking from '../pages/userspage/booking/Booking'
+import Payment from '../pages/userspage/payment/Payment'
+import About from '../pages/userspage/about/About'
+import Story from '../components/common/users/about/Story'
+import Team from '../components/common/users/about/Team'
+import VisionMission from '../components/common/users/about/VisionMission'
+import BlogDescription from '../pages/userspage/about/BlogDescription'
+import AuthLayout from '../layouts/AuthLayout'
 
 const Public = (
     <>
@@ -68,6 +69,10 @@ const Public = (
                 element={<Payment />}
             />
         </Route>
+        <Route
+            path='/login'
+            element={<AuthLayout />}
+        />
         <Route
             path='*'
             element={<PageNotFound />}
