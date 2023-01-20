@@ -1,3 +1,8 @@
 import { PostRequest } from '../plugins/http'
 
-export const APILoginUser = (data: any) => PostRequest('/', data)
+
+interface ILoginData {
+    username:string,
+    password:string
+}
+export const APILoginUser = (data: ILoginData) => PostRequest('/auth/login', data)

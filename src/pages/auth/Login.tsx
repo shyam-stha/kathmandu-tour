@@ -9,7 +9,9 @@ import {
 } from '@mantine/core'
 import Logo from '../../components/partial/Logo'
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { APILoginUser } from '../../api/authAPI'
+import showNotify from '../../utils/notify'
 
 type LoginFormDataType = {
     username: string
@@ -17,6 +19,7 @@ type LoginFormDataType = {
 }
 
 const Login = () => {
+    const navigate = useNavigate()
     const [checked, setChecked] = useState(false)
     const {
         control,
@@ -30,13 +33,17 @@ const Login = () => {
         },
     })
 
-    const OnSubmit: SubmitHandler<LoginFormDataType> = (
+    const OnSubmit: SubmitHandler<LoginFormDataType> = async (
         data: LoginFormDataType
     ) => {
-        reset()
-        setChecked((prev) => !prev)
-        console.log('Remember me', checked)
-        console.log('Form Data', data)
+        try {
+            const res = await APILoginUser(data)
+            localStorage.setItem('city-token', res.data.token)
+            navigate('/dashboard')
+            showNotify('success', 'Logged in successfully')
+        } catch (e: any) {
+            showNotify('error', e)
+        }
     }
 
     return (
@@ -65,8 +72,8 @@ const Login = () => {
                                 {...field}
                                 type='text'
                                 size='md'
-                                label='User Name'
-                                placeholder='Enter your User name'
+                                label='Username'
+                                placeholder='Enter username'
                                 className='w-full'
                                 error={errors.username?.message}
                             />

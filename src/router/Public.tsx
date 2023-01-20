@@ -13,6 +13,7 @@ import Team from '../components/common/users/about/Team'
 import VisionMission from '../components/common/users/about/VisionMission'
 import BlogDescription from '../pages/userspage/about/BlogDescription'
 import AuthLayout from '../layouts/AuthLayout'
+import IsAlreadyLoggedInHoc from '../hoc/IsAlreadyLoggedIn'
 
 const Public = (
     <>
@@ -71,7 +72,11 @@ const Public = (
         </Route>
         <Route
             path='/login'
-            element={<AuthLayout />}
+            element={
+                <IsAlreadyLoggedInHoc>
+                    <AuthLayout />
+                </IsAlreadyLoggedInHoc>
+            }
         />
         <Route
             path='*'

@@ -40,7 +40,6 @@ const PackageReserveForm = () => {
         navigate('/book')
         data.noc = noc
         data.noa = noa
-        console.log(data)
     }
 
     return (
