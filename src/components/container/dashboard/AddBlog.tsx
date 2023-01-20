@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button, Group, TextInput, Textarea, Notification } from '@mantine/core'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
 import { arrowBack, upload } from '../../../assets/images/dashboard'
 import CommonHeader from '../../common/dashboard/CommonHeader'
@@ -10,6 +10,7 @@ import ImageUpload from '../../common/ImageUpload'
 import { APIAddNewBlog } from '../../../api/blogAPI'
 import showNotify from '../../../utils/notify'
 import { blogDTO } from '../../../utils/formatters/blogDTO'
+import { IBlogPostData } from '../../../utils/interfaces/IBlog'
 const AddBlog = () => {
     const [loading, setLoading] = useState(false)
 
@@ -24,15 +25,17 @@ const AddBlog = () => {
         getValues,
         formState: { errors },
         handleSubmit,
-    } = useForm({
+    } = useForm<IBlogPostData>({
         defaultValues: {
             blog_title: '',
-            video_link: '',
-            description: '',
-            imgae_link: '',
+            blog_video_url: '',
+            blog_description: '',
+            blog_cover_image: '',
         },
     })
-    const OnSubmit = async (data: any) => {
+    const OnSubmit: SubmitHandler<IBlogPostData> = async (
+        data: IBlogPostData
+    ) => {
         try {
             const formattedData = blogDTO.send(data)
             const res = await APIAddNewBlog(formattedData)
@@ -81,9 +84,10 @@ const AddBlog = () => {
                             label='Video Link (optional)'
                             placeholder='Enter video link'
                             className='col-span-12 md:col-span-6'
+                            error={errors.blog_video_url?.message}
                         />
                     )}
-                    name='video_link'
+                    name='blog_video_url'
                     control={control}
                 />
                 <div className='col-span-12 md:col-start-7 md:col-end-13 md:row-span-2 md:row-start-1 '>
@@ -94,7 +98,7 @@ const AddBlog = () => {
                         setValue={setValue}
                         getValues={getValues}
                         errors={errors}
-                        value={'imgae_link'}
+                        value={'blog_cover_image'}
                         handleLoading={handleLoading}
                     />
                 </div>
@@ -108,11 +112,11 @@ const AddBlog = () => {
                                 onChange={onChange}></RichTextEditor>
                         )}
                         control={control}
-                        name='description'
+                        name='blog_description'
                         rules={{ required: 'required' }}
                     />
                     <div className={'text-red-600'}>
-                        {errors?.description?.message}
+                        {errors?.blog_description?.message}
                     </div>
                 </div>
 
