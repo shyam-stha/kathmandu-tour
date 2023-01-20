@@ -5,15 +5,23 @@ import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
 import { arrowBack, upload } from '../../../assets/images/dashboard'
 import CommonHeader from '../../common/dashboard/CommonHeader'
 import { useNavigate } from 'react-router-dom'
-
+import { RichTextEditor } from '@mantine/rte'
+import ImageUpload from '../../common/ImageUpload'
+import { APIAddNewBlog } from '../../../api/blogAPI'
+import showNotify from '../../../utils/notify'
+import { blogDTO } from '../../../utils/formatters/blogDTO'
 const AddBlog = () => {
-    const [file, setFile] = useState({})
-    const [error, setError] = useState({})
-    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
 
+    const navigate = useNavigate()
+    const handleLoading = (condition: boolean) => {
+        setLoading(condition)
+    }
     const {
         control,
         reset,
+        setValue,
+        getValues,
         formState: { errors },
         handleSubmit,
     } = useForm({
@@ -24,11 +32,15 @@ const AddBlog = () => {
             imgae_link: '',
         },
     })
-    const OnSubmit = (data: any) => {
-        reset()
-        console.log(data)
-        console.log(file)
-        console.log(error)
+    const OnSubmit = async (data: any) => {
+        try {
+            const formattedData = blogDTO.send(data)
+            const res = await APIAddNewBlog(formattedData)
+            showNotify('success', 'Blog posted')
+            navigate(-1)
+        } catch {
+            showNotify('error', 'Could not create blog')
+        }
     }
 
     return (
@@ -50,7 +62,7 @@ const AddBlog = () => {
                     render={({ field }) => (
                         <TextInput
                             {...field}
-                            size='md'
+                            size='lg'
                             label='Blog Title'
                             placeholder='Enter blog Title'
                             className='col-span-12 md:col-span-6'
@@ -64,9 +76,9 @@ const AddBlog = () => {
                 <Controller
                     render={({ field }) => (
                         <TextInput
-                            size='md'
+                            size='lg'
                             {...field}
-                            label='Video Link'
+                            label='Video Link (optional)'
                             placeholder='Enter video link'
                             className='col-span-12 md:col-span-6'
                         />
@@ -75,59 +87,47 @@ const AddBlog = () => {
                     control={control}
                 />
                 <div className='col-span-12 md:col-start-7 md:col-end-13 md:row-span-2 md:row-start-1 '>
-                    <Dropzone
-                        onDrop={(files) => setFile(files)}
-                        onReject={(files) => setError(files)}
-                        maxSize={3 * 1024 ** 2}
-                        accept={IMAGE_MIME_TYPE}
-                        className='h-full rounded-md bg-transparent'>
-                        <Group
-                            position='center'
-                            style={{ pointerEvents: 'none' }}>
-                            <Dropzone.Idle>
-                                <img
-                                    src={upload}
-                                    className='h-12 w-12'
-                                />
-                            </Dropzone.Idle>
-                            <div className='flex flex-col items-center'>
-                                <h1 className='text-lg font-semibold text-title-active'>
-                                    Upload cover image
-                                </h1>
-                                <h2 className='text-label '>
-                                    Drag'n drop files here to upload, each file
-                                    should not exceed 5mb
-                                </h2>
-                            </div>
-                        </Group>
-                    </Dropzone>
+                    <div className='py-1 text-xl'>Blog Image</div>
+
+                    <ImageUpload
+                        control={control}
+                        setValue={setValue}
+                        getValues={getValues}
+                        errors={errors}
+                        value={'imgae_link'}
+                        handleLoading={handleLoading}
+                    />
                 </div>
-                <Controller
-                    render={({ field }) => (
-                        <Textarea
-                            {...field}
-                            label='Description'
-                            placeholder='Description here...'
-                            className='col-span-12 '
-                            error={errors.description?.message}
-                            size='md'
-                        />
-                    )}
-                    control={control}
-                    name='description'
-                    rules={{ required: 'Blog Description is required  ' }}
-                />
+
+                <div className='col-span-12 '>
+                    <div className='py-1 text-xl'>Blog description</div>
+                    <Controller
+                        render={({ field: { value, onChange } }) => (
+                            <RichTextEditor
+                                value={value}
+                                onChange={onChange}></RichTextEditor>
+                        )}
+                        control={control}
+                        name='description'
+                        rules={{ required: 'required' }}
+                    />
+                    <div className={'text-red-600'}>
+                        {errors?.description?.message}
+                    </div>
+                </div>
+
                 <div className='col-span-12 flex justify-end gap-5'>
                     <Button
                         type='reset'
-                        variant='outline'
-                        className='w-20'>
-                        Cancel
+                        onClick={() => navigate(-1)}
+                        variant='outline'>
+                        Back
                     </Button>
                     <Button
                         type='submit'
                         variant='filled'
-                        className='w-20 bg-gdt-primary '>
+                        disabled={loading}
+                        className=' bg-gdt-primary '>
                         Post
                     </Button>
                 </div>

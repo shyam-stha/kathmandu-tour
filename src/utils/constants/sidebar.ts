@@ -19,8 +19,8 @@ export const sideBarLinkList = [
         activeIcon: '',
     },
     {
-        linkText: 'Calender',
-        tooltipText: 'Calender',
+        linkText: 'Calendar',
+        tooltipText: 'Calendar',
         path: 'calender',
         icon: calender,
         activeIcon: '',

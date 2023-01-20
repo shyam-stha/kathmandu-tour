@@ -5,6 +5,7 @@ import BlogAdmin from '../pages/dashboard/blog/BlogAdmin'
 import Dashboard from '../pages/dashboard/Dashboard'
 import AddBlog from '../components/container/dashboard/AddBlog'
 import BlogListAdmin from '../components/container/dashboard/BlogListAdmin'
+import BlogEdit from '../pages/dashboard/blog/BlogEdit'
 
 const Private = (
     <>
@@ -33,6 +34,11 @@ const Private = (
                 <Route
                     path='add_blog'
                     element={<AddBlog />}
+                />
+
+                <Route
+                    path='detail/:blogId'
+                    element={<BlogEdit />}
                 />
             </Route>
             {/* <Route path='payment' element={} /> */}

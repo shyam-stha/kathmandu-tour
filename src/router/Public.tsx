@@ -58,7 +58,7 @@ const Public = (
             />
 
             <Route
-                path='/blog-details'
+                path='/blog-details/:blogSlug'
                 element={<BlogDescription />}
             />
             <Route

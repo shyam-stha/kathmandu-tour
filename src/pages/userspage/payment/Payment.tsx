@@ -44,7 +44,6 @@ const Payment = (props: Props) => {
                     className='grid grid-cols-8 gap-x-5 gap-y-2'
                     onSubmit={handleSubmit((data) => {
                         reset()
-                        console.log(data)
                     })}>
                     <TextInput
                         disabled={!checked && true}

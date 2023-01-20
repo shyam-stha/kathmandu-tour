@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { getCityToken } from '../utils/localStorage'
 const axiosInstance: any = axios.create({
-    baseURL: 'http://localhost:8000/api/v1',
+    // baseURL: 'http://localhost:8000/api/v1',
+    baseURL: ' https://api-dev.citytours.app/api/v1',
+
     headers: {
         'Content-Type': 'application/json',
         // "X-Custom-Header": "foobar",

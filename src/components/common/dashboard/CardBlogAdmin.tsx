@@ -1,26 +1,43 @@
+import { ActionIcon } from '@mantine/core'
+import {
+    IconBatteryAutomotive,
+    IconEdit,
+    IconSettings,
+    IconTrash,
+} from '@tabler/icons'
+import { useNavigate } from 'react-router-dom'
+import { APIChangeBlogStatus } from '../../../api/blogAPI'
 import { edit, remove, travel } from '../../../assets/images/dashboard'
+import showNotify from '../../../utils/notify'
 import Title from '../Title'
 
-const CardBlogAdmin = () => {
+const CardBlogAdmin = (props: any) => {
+    const navigate = useNavigate()
+    const { blogDetail, handleDelete } = props
+
     return (
-        <div className='relative h-[200px] min-w-[200px] overflow-hidden rounded-md '>
+        <div
+            className='relative h-[200px] min-w-[200px] overflow-hidden rounded-md '
+            onClick={() => navigate(`detail/${blogDetail.id}`)}>
             <img
-                src={travel}
+                src={blogDetail.blogCoverImage}
                 className='-z-10 h-full w-full object-cover'
             />
-            <h1 className='absolute bottom-5 left-5 text-sm text-white sm:text-lg'>
-                Cook Like a Local
-            </h1>
-            <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
-                <img
-                    src={remove}
-                    alt='remove'
-                />
-                <img
-                    src={edit}
-                    alt='edit'
-                />
+            <div className=' text-md absolute bottom-5 left-5  text-white bg-blend-color-dodge  backdrop-blur-[3px] sm:text-lg'>
+                {blogDetail.blogTitle}
             </div>
+            {/* <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
+                <ActionIcon
+                    variant='filled'
+                    onClick={() => navigate(`detail/${blogDetail.id}`)}>
+                    <IconEdit size={32} />
+                </ActionIcon>
+                <ActionIcon
+                    variant='filled'
+                    onClick={() => handleDelete(blogDetail.id)}>
+                    <IconTrash size={32} />
+                </ActionIcon>
+            </div> */}
         </div>
     )
 }
