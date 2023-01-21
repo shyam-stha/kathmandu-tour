@@ -1,5 +1,6 @@
 import Router from './router/Index'
-import TextEditor from './test/TextEditor'
+import Landing from './test/Landing'
+import LandingLayout from './test/LandingLayout'
 
-const App = () => Router
+const App = () => <LandingLayout />
 export default App

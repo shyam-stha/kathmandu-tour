@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Urban Grotesk';
+    src: local('Urban Grotesk Light'), local('Urban-Grotesk-Light'),
+        url('UrbanGroteskLiSe-Regular.woff2') format('woff2'),
+        url('UrbanGroteskLiSe-Regular.woff') format('woff'),
+        url('UrbanGroteskLiSe-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  

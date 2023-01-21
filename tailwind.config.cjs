@@ -7,6 +7,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 hero: "url('./src/assets/images/landing/hero.png')",
+                bgimg: "url('./src/assets/images/landing/background.png')",
             },
             fontFamily: {
                 roboto: 'Roboto',

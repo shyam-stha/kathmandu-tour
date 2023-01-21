@@ -2,19 +2,19 @@ export const navitems = [
     {
         linkText: 'About',
         icon: '',
-        path: '',
+        path: '/about',
         activeIcon: '',
     },
     {
-        linkText: '',
+        linkText: 'Contact',
         icon: '',
-        path: '',
+        path: '/contact',
         activeIcon: '',
     },
     {
-        linkText: '',
+        linkText: 'Stories',
         icon: '',
-        path: '',
+        path: '/stories',
         activeIcon: '',
     },
 ]

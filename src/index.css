@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 
-.check{
-    border: 2px solid red;
+body{
+    font-family: 'urban grotesk';
 }
