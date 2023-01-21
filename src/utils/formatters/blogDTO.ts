@@ -1,5 +1,4 @@
 import {
-    IBlogData,
     IBlogDetailActive,
     IBlogPostData,
     IBlogReceivedData,
