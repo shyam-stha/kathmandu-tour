@@ -70,16 +70,16 @@ const BlogEdit = () => {
                     <Badge
                         size='xl'
                         color={`${
-                            blogDetail.is_active === true ? 'green' : 'red'
+                            blogDetail?.is_active === true ? 'green' : 'red'
                         }`}>
-                        {blogDetail.is_active === true
+                        {blogDetail?.is_active === true
                             ? 'POSTED'
                             : 'DEACTIVATED'}
                     </Badge>
                 </div>
 
                 <img
-                    src={blogDetail?.blog_cover_image || blogDetail.blog_title}
+                    src={blogDetail?.blog_cover_image || blogDetail?.blog_title}
                     className='mb-5 w-full rounded-md'
                 />
                 <div className='text-justify'>
@@ -89,7 +89,7 @@ const BlogEdit = () => {
                         }}
                     />{' '}
                 </div>
-                {blogDetail.blog_video_url && (
+                {blogDetail?.blog_video_url && (
                     <div className='my-5 grid grid-cols-12'>
                         <video
                             controls
@@ -103,7 +103,7 @@ const BlogEdit = () => {
             <div className='col-span-12 flex items-center justify-end gap-5'>
                 <Button
                     type='reset'
-                    onClick={() => handleDelete(blogDetail.id)}
+                    onClick={() => handleDelete(blogDetail?.id)}
                     color={'red'}
                     variant='outline'>
                     Delete
@@ -112,10 +112,10 @@ const BlogEdit = () => {
                     type='submit'
                     variant='filled'
                     onClick={() =>
-                        handeStatus(blogDetail.id, !blogDetail.is_active)
+                        handeStatus(blogDetail?.id, !blogDetail?.is_active)
                     }
                     className=' bg-gdt-primary'>
-                    {blogDetail.is_active === true ? 'Deactivate' : 'Activate'}
+                    {blogDetail?.is_active === true ? 'Deactivate' : 'Activate'}
                 </Button>
             </div>
         </section>

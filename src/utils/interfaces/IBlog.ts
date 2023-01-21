@@ -1,12 +1,3 @@
-export interface IBlogData {
-    id: string
-    blogSlug: string
-    blogTitle: string
-    blogDescription: string
-    blogCoverImage: string
-    blogVideoUrl: string
-}
-
 export interface IBlogReceivedData {
     id: string
     blog_slug: string
@@ -25,7 +16,7 @@ export interface IBlogDetailActive {
 }
 
 export interface IBlogDetail {
-    id:string
+    id: string
     is_active: boolean
     blog_title: string
     blog_description: string

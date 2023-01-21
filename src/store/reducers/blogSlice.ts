@@ -1,22 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IBlogDetail } from '../../utils/interfaces/IBlog'
 
 type BlogStateType = {
-    dropzoneFile: any
+    blogDetail: {}
 }
 
 const initialState: BlogStateType = {
-    dropzoneFile: null,
+    blogDetail: {}
 }
 
 const blogSlice = createSlice({
     name: 'blog',
     initialState,
     reducers: {
-        imageUploaded: (state, action: PayloadAction<BlogStateType>) => {
-            state.dropzoneFile = action.payload
-        },
+       editBlog : (state, action: PayloadAction<IBlogDetail>) =>{
+            state.blogDetail = action.payload
+       }
     },
 })
 
-export const { imageUploaded } = blogSlice.actions
+export const { editBlog } = blogSlice.actions
 export default blogSlice.reducer

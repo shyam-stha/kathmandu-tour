@@ -12,10 +12,10 @@ import {
 } from '../../../api/blogAPI'
 import { blogDTO } from '../../../utils/formatters/blogDTO'
 import showNotify from '../../../utils/notify'
-import { IBlogData } from '../../../utils/interfaces/IBlog'
+import { IBlogReceivedData } from '../../../utils/interfaces/IBlog'
 
 const BlogListAdmin = () => {
-    const [blogs, setBlogs] = useState<any>([])
+    const [blogs, setBlogs] = useState<IBlogReceivedData[]>([])
     const largerScreen = useMediaQuery('(min-width: 768px)')
     const navigate = useNavigate()
     const createBlog = () => {
@@ -70,7 +70,7 @@ const BlogListAdmin = () => {
                 </div>
             </section>
             <section className=' grid grid-cols-12 gap-5'>
-                {blogs.map((blog, idx) => (
+                {blogs?.map((blog, idx) => (
                     <div
                         className='col-span-12 cursor-pointer md:col-span-6 lg:col-span-4 2xl:col-span-3'
                         key={idx}>
