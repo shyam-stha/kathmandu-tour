@@ -23,7 +23,7 @@ const Landing = () => {
                         through locally curated city experiences
                     </h2>
                 </div>
-                <div className='grid grid-cols-12 place-content-between gap-y-8 pl-32 text-center text-3xl text-white lg:place-items-baseline lg:gap-24'>
+                <div className='check grid grid-cols-12 place-content-between gap-y-4 pl-32 text-center text-3xl text-white lg:place-items-baseline lg:gap-24'>
                     <figure className='col-span-4'>
                         <div>
                             <img
@@ -145,7 +145,7 @@ const Landing = () => {
                     <div className='col-span-6 flex h-52 items-center justify-center  bg-[#d9d9d9] lg:col-span-3'>
                         <h1 className='text-center text-2xl leading-10'>
                             hang on <br />
-                            it' coming!
+                            it's coming!
                         </h1>
                     </div>
                     <div className='col-span-6 flex h-52 items-center justify-center  bg-[#d9d9d9] lg:col-span-3'>
