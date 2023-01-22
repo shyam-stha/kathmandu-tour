@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
-                hero: "url('./src/assets/images/landing/hero.png')",
+                // hero: "url('./src/assets/images/landing/hero.png')",
                 bgimg: "url('./src/assets/images/landing/background.png')",
             },
             fontFamily: {

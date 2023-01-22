@@ -14,6 +14,8 @@ import VisionMission from '../components/common/about/VisionMission'
 import BlogDescription from '../pages/userspage/about/BlogDescription'
 import AuthLayout from '../layouts/AuthLayout'
 import IsAlreadyLoggedInHoc from '../hoc/IsAlreadyLoggedIn'
+import Landing from '../pages/userspage/landing/Landing'
+import AboutUs from '../pages/userspage/about/AboutUs'
 
 const Public = (
     <>
@@ -22,7 +24,7 @@ const Public = (
             element={<MainLayout />}>
             <Route
                 index
-                element={<LandingPage />}
+                element={<Landing />}
             />
             <Route
                 path='/details'
@@ -34,24 +36,8 @@ const Public = (
             />
             <Route
                 path='/about/'
-                element={<About />}>
-                <Route
-                    index
-                    element={<Story />}
-                />
-                <Route
-                    path='story'
-                    element={<Story />}
-                />
-                <Route
-                    path='team'
-                    element={<Team />}
-                />
-                <Route
-                    path='vision'
-                    element={<VisionMission />}
-                />
-            </Route>
+                element={<AboutUs/>} />
+                
             <Route
                 path='/blogs'
                 element={<Blogs />}

@@ -15,7 +15,7 @@ const NavbarResponsiv = () => {
                 to={item.path}
                 key={item.linkText}
                 className='flex flex-col items-center justify-center '>
-                <span className='text-xl font-extralight '>
+                <span className='text-2xl font-extralight '>
                     {item.linkText}
                 </span>
             </NavLink>
@@ -36,12 +36,12 @@ const NavbarResponsiv = () => {
 
     return (
         <header
-            className={` fixed top-0 right-0 left-0 flex items-center justify-between px-10 py-1 font-fira sm:px-16  ${
+            className={` fixed top-0 right-0 left-0 flex items-center justify-between px-10 py-1 sm:px-16  ${
                 scrolled ? 'bg-white text-label' : 'text-white'
             }`}>
             <img
                 src={scrolled ? logo : logofinal}
-                className='h-16 w-16'
+                className={`${scrolled ? 'h-16 w-16' : 'h-20 w-20'}`}
             />
             <nav className=' hidden sm:flex sm:items-center sm:gap-6'>
                 {NavItems}
@@ -49,7 +49,7 @@ const NavbarResponsiv = () => {
             <nav className='sm:hidden'>
                 <Burger
                     size={'lg'}
-                    color='white'
+                    color={scrolled ? 'black' : 'white'}
                     opened={opened}
                     onClick={() => setOpened((prev: any) => !prev)}
                 />
