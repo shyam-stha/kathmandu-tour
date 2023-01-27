@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Group, TextInput, Textarea, Notification } from '@mantine/core'
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
@@ -7,11 +7,12 @@ import CommonHeader from '../../common/dashboard/CommonHeader'
 import { useNavigate } from 'react-router-dom'
 import { RichTextEditor } from '@mantine/rte'
 import ImageUpload from '../../common/ImageUpload'
-import { APIAddNewBlog } from '../../../api/blogAPI'
+import { APIAddNewBlog, APIEditBlog } from '../../../api/blogAPI'
 import showNotify from '../../../utils/notify'
 import { blogDTO } from '../../../utils/formatters/blogDTO'
 import { IBlogPostData } from '../../../utils/interfaces/IBlog'
-const AddBlog = () => {
+
+const AddBlog = (props: any) => {
     const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
@@ -33,6 +34,16 @@ const AddBlog = () => {
             blog_cover_image: '',
         },
     })
+
+    useEffect(() => {
+        if (props.blogDeatils) {
+            setValue('blog_title', props.blogDeatils.blog_title)
+            setValue('blog_video_url', props.blogDeatils.blog_title)
+            setValue('blog_cover_image', props.blogDeatils.blog_title)
+            setValue('blog_description', props.blogDeatils.blog_title)
+        }
+    }, [props])
+
     const OnSubmit: SubmitHandler<IBlogPostData> = async (
         data: IBlogPostData
     ) => {
@@ -43,6 +54,19 @@ const AddBlog = () => {
             navigate(-1)
         } catch {
             showNotify('error', 'Could not create blog')
+        }
+    }
+
+    const handleEdit: SubmitHandler<IBlogPostData> = async (
+        data: IBlogPostData
+    ) => {
+        try {
+            const formattedData = blogDTO.send(data)
+            const res = await APIEditBlog(formattedData, props.blogDeatils.id)
+            showNotify('sucess', 'Blog Edited')
+            navigate(-1)
+        } catch (error) {
+            showNotify('error', 'Could not edit blog')
         }
     }
 
@@ -59,7 +83,7 @@ const AddBlog = () => {
                 <CommonHeader heading='Blog' />
             </section>
             <form
-                onSubmit={handleSubmit(OnSubmit)}
+                onSubmit={handleSubmit(props ? handleEdit : OnSubmit)}
                 className='grid grid-cols-12 gap-5'>
                 <Controller
                     render={({ field }) => (
@@ -131,8 +155,15 @@ const AddBlog = () => {
                         type='submit'
                         variant='filled'
                         disabled={loading}
-                        className=' bg-gdt-primary '>
+                        className={`bg-gdt-primary ${props ? 'hidden' : ''}`}>
                         Post
+                    </Button>
+                    <Button
+                        type='submit'
+                        variant='filled'
+                        disabled={loading}
+                        className={`bg-gdt-primary ${props ? '' : 'hidden'}`}>
+                        Edit
                     </Button>
                 </div>
             </form>

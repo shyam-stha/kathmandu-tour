@@ -17,10 +17,12 @@ const CardBlogAdmin = (props: any) => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { blogDetail, handleDelete } = props
-    const handleEdit = (blogDetail: IBlogDetail)=>{
-        
+    const handleEdit = (e: any, blogId: string) => {
         // dispatch(editBlog(blogDetail))
         // navigate(`detail/${blogDetail?.id}`)
+
+        e.stopPropagation()
+        navigate(`edit/${blogId}`)
     }
 
     return (
@@ -37,7 +39,7 @@ const CardBlogAdmin = (props: any) => {
             <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
                 <ActionIcon
                     variant='filled'
-                    onClick={() => handleEdit(blogDetail)}>
+                    onClick={(e) => handleEdit(e, blogDetail?.id)}>
                     <IconEdit size={32} />
                 </ActionIcon>
                 <ActionIcon

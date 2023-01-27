@@ -11,7 +11,7 @@ const AboutUs = () => {
                     We are a collaboration of deep local expertise in immersive
                     travel and technology to streamline the finding and booking
                     process. Raj Gyawali , Enterpreneur, consultant, activist
-                    and a wanderer, Raj heads travel companies in Nepal and
+                    and a wanderer, Raj head    s travel companies in Nepal and
                     Norway focussed on ethical, responsible, transformational
                     travel. His key strengths are strategies, sustainable
                     tourism and developing new experiences.

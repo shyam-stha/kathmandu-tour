@@ -6,6 +6,7 @@ import Dashboard from '../pages/dashboard/Dashboard'
 import AddBlog from '../components/container/dashboard/AddBlog'
 import BlogListAdmin from '../components/container/dashboard/BlogListAdmin'
 import BlogEdit from '../pages/dashboard/blog/BlogEdit'
+import BlogEditAdmin from '../components/container/dashboard/BlogEditAdmin'
 
 const Private = (
     <>
@@ -39,6 +40,10 @@ const Private = (
                 <Route
                     path='detail/:blogId'
                     element={<BlogEdit />}
+                />
+                <Route 
+                    path='edit/:blogId'
+                    element={<BlogEditAdmin />}
                 />
             </Route>
             {/* <Route path='payment' element={} /> */}

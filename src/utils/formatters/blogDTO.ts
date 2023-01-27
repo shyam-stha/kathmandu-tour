@@ -35,6 +35,7 @@ export const blogDTO = {
     send: (data: IBlogPostData) => {
         return {
             blog_title: data?.blog_title || '--',
+            blog_teaser: data?.blog_teaser || '--',
             blog_description: data?.blog_description || '--',
             blog_cover_image: data?.blog_cover_image || '--',
             blog_video_url: data?.blog_video_url || '--',

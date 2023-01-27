@@ -26,6 +26,7 @@ export interface IBlogDetail {
 
 export interface IBlogPostData {
     blog_title: string
+    blog_teaser: string
     blog_description: string
     blog_cover_image: string
     blog_video_url: string
