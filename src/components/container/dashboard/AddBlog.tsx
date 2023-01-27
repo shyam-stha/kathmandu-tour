@@ -38,9 +38,9 @@ const AddBlog = (props: any) => {
     useEffect(() => {
         if (props.blogDeatils) {
             setValue('blog_title', props.blogDeatils.blog_title)
-            setValue('blog_video_url', props.blogDeatils.blog_title)
-            setValue('blog_cover_image', props.blogDeatils.blog_title)
-            setValue('blog_description', props.blogDeatils.blog_title)
+            setValue('blog_video_url', props.blogDeatils.blog_video_url)
+            setValue('blog_cover_image', props.blogDeatils.blog_cover_image)
+            setValue('blog_description', props.blogDeatils.blog_description)
         }
     }, [props])
 

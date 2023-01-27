@@ -30,11 +30,11 @@ const CardBlogAdmin = (props: any) => {
             className='relative h-[200px] min-w-[200px] overflow-hidden rounded-md '
             onClick={() => navigate(`detail/${blogDetail?.id}`)}>
             <img
-                src={blogDetail?.blogCoverImage}
+                src={blogDetail?.blog_cover_image}
                 className='-z-10 h-full w-full object-cover'
             />
             <div className=' text-md absolute bottom-0 left-0 right-0 flex h-16 items-center  text-white bg-blend-color-dodge  backdrop-blur-[3px] sm:text-lg'>
-                {blogDetail?.blogTitle}
+                {blogDetail?.blog_title}
             </div>
             <div className=' absolute top-3 right-6 flex cursor-pointer gap-2'>
                 <ActionIcon
